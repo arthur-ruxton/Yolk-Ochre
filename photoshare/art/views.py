@@ -8,7 +8,11 @@ from rest_framework import status # to send status code
 from .models import Art
 from .serializers import ArtSerializer
 
+from rest_framework.permissions import IsAuthenticatedOrReadOnly # <-- django permissions
+
 class ArtDetailView(APIView): 
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
      # DELETE request currently not working
     def delete(self, request, pk):
         try:
@@ -38,6 +42,8 @@ class ArtDetailView(APIView):
 
 
 class ArtListView(APIView):
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
      #POST /art/
     def post(self, request):
         art = ArtSerializer(data = request.data)
