@@ -43,8 +43,8 @@ class ArtListView(APIView):
         art = ArtSerializer(data = request.data)
         if art.is_valid():
             # art.save() # <-- django orm method to save
-            art.save(owner = [request.user]) # <---- assigning ownership after POST
-            # art.save(owners= request.user) # <---- one to many version
+            # art.save(owner = [request.user]) # <---- assigning ownership after POST
+            art.save(owner = request.user) # <---- one to many version
             return Response(art.data, status=status.HTTP_201_CREATED) # send back appropriate http response 
         else:
             return Response(art.data, status=status.HTTP_422_UNPROCESSABLE_ENTITY) # throw back error 
