@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'follows',
     'art',
     'like',
+    'corsheaders',
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -45,13 +46,12 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware'
 ]
 
 ROOT_URLCONF = 'photoshare.urls'
@@ -142,3 +142,5 @@ REST_FRAMEWORK = { # <------------ hooking up authentication
         'rest_framework.authentication.SessionAuthentication',
     ],
 }
+
+CORS_ORIGIN_ALLOW_ALL = True

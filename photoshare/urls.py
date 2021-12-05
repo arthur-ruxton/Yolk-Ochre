@@ -6,8 +6,8 @@ from django.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('art/', include('art.urls')),
-    path('auth/', include('jwt_auth.urls')),
-    path('follows/', include('follows.urls')),
-    path('like/', include('like.urls'))
+    path('api/art/', include('art.urls')),
+    path('api/auth/', include('jwt_auth.urls')),
+    path('api/follows/', include('follows.urls')),
+    path('api/like/', include('like.urls'))
 ]
