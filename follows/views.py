@@ -2,16 +2,11 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.exceptions import NotFound, PermissionDenied
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from .models import Follows
 from .serializers import FollowsSerializer
 
-# Create your views here.
-
 class FollowsListView(APIView):
-    permission_classes = (IsAuthenticatedOrReadOnly,)
-
      #POST /follows/
     def post(self, request):
         request.data['owner'] = request.user.id
@@ -23,9 +18,7 @@ class FollowsListView(APIView):
             return Response(follow_to_add.data, status=status.HTTP_422_UNPROCESSABLE_ENTITY) # throw back error 
 
 
-class FollowsDetailView(APIView): 
-    permission_classes = (IsAuthenticatedOrReadOnly,)
-
+class FollowsDetailView(APIView):
     # GET ONE
     # respond to get - pass in id as pk (this is essentially show functionality)
     def get_follows(self, pk):
