@@ -1,20 +1,15 @@
-from django.http.response import HttpResponseRedirect
-from django.shortcuts import redirect, render
-# Create your views here.
-from rest_framework.views import APIView
-from rest_framework.response import Response
+from rest_framework.views import APIView 
+from rest_framework.response import Response # <------ alternative to import HTTPResponse
 from rest_framework import status
-from rest_framework.exceptions import PermissionDenied
-#from django.contrib.auth import get_user_model # <-- using custom user model 
+from rest_framework.permissions import IsAuthenticatedOrReadOnly # <-- django permissions
+from rest_framework.exceptions import PermissionDenied # <------ exceptions 
 from django.conf import settings
-from django.urls import reverse
-import jwt
+import jwt # <---------------------------------- import json webtoken
 from .serializers import PopulatedUserSerializer
-#User = get_user_model()
-from .models import User # <-- using custom user model 
+from .models import User # <-------------------- custom user model -> else use -> #from django.contrib.auth import get_user_model 
 
 class RegisterView(APIView):
-
+    # POST REGISTER INFO
     def post(self, request):
         serializer = PopulatedUserSerializer(data=request.data)
         if serializer.is_valid():
@@ -25,13 +20,13 @@ class RegisterView(APIView):
 
 
 class LoginView(APIView):
-
+    # GET USER INFO
     def get_user(self, username): # <---- I changed email to username for login
         try:
             return User.objects.get(username=username)
         except User.DoesNotExist:
             raise PermissionDenied({'message': 'Invalid credentials'})
-
+    # POST LOGIN REQUEST
     def post(self, request):
 
         username = request.data.get('username')
@@ -46,6 +41,9 @@ class LoginView(APIView):
 
 
 class UserView(APIView):
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+    
+    # GET USER INFO
     def get_user(self, pk): # <---- I changed email to username for login
         try:
             return User.objects.get(pk=pk)
@@ -58,7 +56,7 @@ class UserView(APIView):
         print('user', serialized_user)
         return Response(serialized_user.data, status=status.HTTP_200_OK)
 
-      # EDIT ONE
+    # EDIT USER INFO
     def put(self, request, pk):
         user = User.objects.get(id=pk) # django ORM method to grab one by its id
         updated_user = PopulatedUserSerializer(user, data=request.data)
