@@ -20,4 +20,4 @@ class Follows(models.Model):
     )
 
     def __str__(self):
-        return f"{self.follow}"
+        return f"{self.following}"

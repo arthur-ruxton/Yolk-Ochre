@@ -31,9 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'art',
     'jwt_auth',
     'follows',
+    'art',
+    'like',
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
