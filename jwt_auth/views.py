@@ -58,3 +58,12 @@ class UserView(APIView):
         print('user', serialized_user)
         return Response(serialized_user.data, status=status.HTTP_200_OK)
 
+      # EDIT ONE
+    def put(self, request, pk):
+        user = User.objects.get(id=pk) # django ORM method to grab one by its id
+        updated_user = PopulatedUserSerializer(user, data=request.data)
+        if updated_user.is_valid():
+            updated_user.save()
+            return Response(updated_user.data,status=status.HTTP_202_ACCEPTED)
+        else:
+            return Response(updated_user.data,status=status.HTTP_422_UNPROCESSABLE_ENTITY)
