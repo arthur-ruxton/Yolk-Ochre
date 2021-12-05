@@ -1,14 +1,9 @@
-from django.http.response import HttpResponse
-from django.shortcuts import render
-
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status # to send status code
-
-from .models import Art
-from .serializers import ArtSerializer
-
 from rest_framework.permissions import IsAuthenticatedOrReadOnly # <-- django permissions
+from .models import Art # <------------------------------------- import the model we're working with
+from .serializers import ArtSerializer # <-- serializers are a mechanism for translating Django models into other formats, in this case jason
 
 class ArtDetailView(APIView): 
     permission_classes = (IsAuthenticatedOrReadOnly,)
@@ -33,7 +28,7 @@ class ArtDetailView(APIView):
             return Response(updated_art.data,status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
     # GET ONE
-    # respond to get - pass in id as pk (this is essentially show functionality)
+    # respond to get - pass in id as pk - (essentialy show functionality)
     def get(self, request, pk):
         art = Art.objects.get(id=pk)
         serialized_art = ArtSerializer(art)
@@ -62,4 +57,4 @@ class ArtListView(APIView):
         return Response(serialized_art.data, status=status.HTTP_200_OK)
 
 def home(request):
-    return HttpResponse('<h1>hello world</h1>')
+    return Response('<h1>hello world</h1>')
