@@ -9,5 +9,7 @@ urlpatterns = [
     path('api/art/', include('art.urls')),
     path('api/auth/', include('jwt_auth.urls')),
     path('api/follows/', include('follows.urls')),
-    path('api/like/', include('like.urls'))
+    path('api/favourite/', include('favourite.urls')),
+    path('api/like/', include('like.urls')),
+    path('api/comment/', include('comment.urls'))
 ]

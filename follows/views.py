@@ -1,12 +1,14 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.permissions import IsAuthenticatedOrReadOnly # <-- django permissions
 from rest_framework.exceptions import NotFound, PermissionDenied
 
 from .models import Follows
 from .serializers import FollowsSerializer
 
 class FollowsListView(APIView):
+    permission_classes = (IsAuthenticatedOrReadOnly,)
      #POST /follows/
     def post(self, request):
         request.data['owner'] = request.user.id
@@ -19,6 +21,7 @@ class FollowsListView(APIView):
 
 
 class FollowsDetailView(APIView):
+    permission_classes = (IsAuthenticatedOrReadOnly,)
     # GET ONE
     # respond to get - pass in id as pk (this is essentially show functionality)
     def get_follows(self, pk):

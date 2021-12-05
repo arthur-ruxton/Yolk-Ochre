@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'favourite',
     'art',
     'like',
+    'comment',
     'corsheaders',
     'rest_framework',
     'django.contrib.admin',
