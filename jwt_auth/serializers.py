@@ -31,7 +31,13 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ('username', 'email', 'password', 'password_confirmation',)
 
-class PopulatedUserSerializer(UserSerializer):
+class BaseUserSerializer(UserSerializer):
     class Meta:
         model = User
         fields = '__all__'
+
+class PopulatedUserSerializer(BaseUserSerializer):
+    followers = BaseUserSerializer(read_only=True, many=True)
+    following = BaseUserSerializer(read_only=True, many=True)
+    favourites = BaseUserSerializer(read_only=True, many=True)
+    favouritedBy = BaseUserSerializer(read_only=True, many=True)

@@ -8,6 +8,9 @@ import jwt # <---------------------------------- import json webtoken
 from .serializers import PopulatedUserSerializer
 from .models import User # <-------------------- custom user model -> else use -> #from django.contrib.auth import get_user_model 
 
+from django.shortcuts import render
+from django.urls import reverse
+
 class RegisterView(APIView):
     # POST REGISTER INFO
     def post(self, request):
@@ -40,7 +43,7 @@ class LoginView(APIView):
         return Response({'token': token, 'message': f'Welcome back {user.username}!'})
 
 
-class UserView(APIView):
+class UserDetailView(APIView):
     permission_classes = (IsAuthenticatedOrReadOnly,)
     
     # GET USER INFO
@@ -65,3 +68,46 @@ class UserView(APIView):
             return Response(updated_user.data,status=status.HTTP_202_ACCEPTED)
         else:
             return Response(updated_user.data,status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
+
+class FollowToggle(APIView): # <-- rename followToggle
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
+    def put(self, request, pk): # <------------- pass this function user-to-follows id
+        userToFollow = User.objects.get(id=pk)
+        currentUser = User.objects.get(id=request.user.id)
+        following = currentUser.following.all()
+
+        if userToFollow != currentUser:
+            if userToFollow in following:
+                currentUser.following.remove(userToFollow)
+            else:
+                currentUser.following.add(userToFollow)
+    
+        currentUser.save()
+        serialized_user = PopulatedUserSerializer(currentUser)
+        return Response(serialized_user.data, status=status.HTTP_202_ACCEPTED)
+
+
+class FavouriteToggle(APIView): # <-- rename followToggle
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
+    def put(self, request, pk): # <------------- pass this function user-to-follows id
+        userToFavourite = User.objects.get(id=pk)
+        currentUser = User.objects.get(id=request.user.id)
+        favourites = currentUser.favourites.all()
+
+        if userToFavourite != currentUser:
+            if userToFavourite in favourites:
+                currentUser.favourites.remove(userToFavourite)
+            else:
+                currentUser.favourites.add(userToFavourite)
+    
+        currentUser.save()
+        serialized_user = PopulatedUserSerializer(currentUser)
+        return Response(serialized_user.data, status=status.HTTP_202_ACCEPTED)
+
+
+
+
+

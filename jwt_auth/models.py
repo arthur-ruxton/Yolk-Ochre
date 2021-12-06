@@ -15,3 +15,9 @@ class User(AbstractUser):
     bio = models.CharField(max_length = 200, blank=True, default='Bio')
     profile_image = models.CharField(max_length = 300)
     website = models.URLField(max_length=200, blank=True)
+    following = models.ManyToManyField(
+        "User", related_name="followers", blank=True
+    )
+    favourites = models.ManyToManyField(
+        "User", related_name="favouritedBy", blank=True
+    )
