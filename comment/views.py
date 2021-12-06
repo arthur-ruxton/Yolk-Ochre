@@ -30,10 +30,10 @@ class CommentsDetailView(APIView):
 
     # GET ONE
     # respond to get - pass in id as pk (this is essentially show functionality)
-    def get(self, request, pk):
-        comment = Comment.objects.get(id=pk)
-        serialized_comment = CommentSerializer(comment)
-        return Response(serialized_comment.data,status=status.HTTP_200_OK)
+    # def get(self, request, pk):
+    #    comment = Comment.objects.get(id=pk)
+    #    serialized_comment = CommentSerializer(comment)
+    #    return Response(serialized_comment.data,status=status.HTTP_200_OK)
 
 class CommentListView(APIView):
     permission_classes = (IsAuthenticatedOrReadOnly,)

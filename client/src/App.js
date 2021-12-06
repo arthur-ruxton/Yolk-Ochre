@@ -1,14 +1,14 @@
 import React from 'react'
-import axios from 'axios'
+// import axios from 'axios'
+// import { Routes, Route } from 'react-router-dom'
+// import { useEffect, useState } from 'react'
+
+// import { getToken } from './helpers/auth'
+
+
 
 function App() {
-  React.useEffect(() => {
-    const getData = async () => {
-      const res = await axios.get('/api/art/') // * <-- replace with your endpoint
-      console.log(res.data)
-    }
-    getData()
-  })
+
 
   return <h1>Hello World</h1>
 }
