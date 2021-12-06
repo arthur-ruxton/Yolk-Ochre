@@ -57,3 +57,4 @@ class ArtListView(APIView):
 
 def home(request):
     return Response('<h1>hello world</h1>')
+

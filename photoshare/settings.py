@@ -32,10 +32,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'jwt_auth',
-    # 'follows',
-    # 'favourite',
     'art',
-    # 'like',
+    'like',
     'comment',
     'corsheaders',
     'rest_framework',

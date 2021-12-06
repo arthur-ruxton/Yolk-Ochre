@@ -39,5 +39,6 @@ class BaseUserSerializer(UserSerializer):
 class PopulatedUserSerializer(BaseUserSerializer):
     followers = BaseUserSerializer(read_only=True, many=True)
     following = BaseUserSerializer(read_only=True, many=True)
-    favourites = BaseUserSerializer(read_only=True, many=True)
     favouritedBy = BaseUserSerializer(read_only=True, many=True)
+    favourites = BaseUserSerializer(read_only=True, many=True)
+    
