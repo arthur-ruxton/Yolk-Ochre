@@ -11,7 +11,7 @@ const FormInput = ({
 }) => {
   return (
     <div>
-      <Form.control
+      <Form.Control
         className="text-field"
         placeholder={placeholder}
         type={type}

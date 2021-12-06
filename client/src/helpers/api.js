@@ -1,11 +1,10 @@
-
 import axios from 'axios'
 import { getToken } from './auth'
 
 export const getAxiosRequestConfig = (requestUrl, data, method = 'post') => {
   const config = {
     method,
-    url: `/api${requestUrl}`,
+    url: `/api/${requestUrl}`,
     headers: { 
       Authorization: `${getToken()}`,
       'Content-Type': 'application/json',
@@ -25,11 +24,11 @@ const makeAxiosRequest = async (url, data) => {
 }
 
 export const register = (data) => {
-  return makeAxiosRequest('/api/auth/register/', data)
+  return makeAxiosRequest('auth/register/', data)
 }
 
 export const login = async (data) => {
-  return makeAxiosRequest('/api/auth/login/', data)
+  return makeAxiosRequest('auth/login/', data)
 }
 //-----------------------------------------------//
 //----- get user info / edit user info -----//

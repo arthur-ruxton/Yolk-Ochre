@@ -114,6 +114,7 @@ const Register = () => {
             name='passwordConfirmation'   
             {...formInputProps} 
           />
+          <Form.Control type="submit" value="Register" />
           {isError ? (
             <div className='error'>
               <p>Error. Please try again.</p>
