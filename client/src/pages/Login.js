@@ -9,7 +9,7 @@ import Form from 'react-bootstrap/Form'
 const Login = ({ setIsLoggedIn }) => {
   const [data, setData] = useState({
     username: '',
-    password: ''
+    password: '',
   })
 
   const [errorInfo, setErrorInfo] = useState({})
@@ -25,7 +25,7 @@ const Login = ({ setIsLoggedIn }) => {
   }
 
   const handleError = (error) => {
-    if(error.response) {
+    if (error.response) {
       setErrorInfo(error.response.data)
       setIsError(true)
     }
@@ -40,7 +40,7 @@ const Login = ({ setIsLoggedIn }) => {
     const { name, value } = event.target
     setData({
       ...data,
-      [name]: value
+      [name]: value,
     })
   }
 

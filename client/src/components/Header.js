@@ -4,7 +4,7 @@ import { removeToken } from '../helpers/auth'
 import { useNavigate } from 'react-router-dom'
 // import SearchBar from '../pages/SearchBar'
 
-const Header = ({ isLoggedIn, setIsLoggedIn}) => {
+const Header = ({ isLoggedIn, setIsLoggedIn }) => {
   const navigate = useNavigate()
 
   const handleLogOut = () => {
@@ -18,17 +18,17 @@ const Header = ({ isLoggedIn, setIsLoggedIn}) => {
       <div className="title-div">
         <h1>YolkOchre</h1>
       </div>
-      <div className="nave-div">
+      <div className="nav-div">
         <nav>
           <ul>
-            <li>
-              <Link className="nav-link" to="/">Home</Link>
-            </li>
-            <li>
-              <Link className="nav-link" to="/Explore">Explore</Link>
-            </li>
             {isLoggedIn ? (
               <>
+                <li>
+                  <Link className="nav-link" to="/">Home</Link>
+                </li>
+                <li>
+                  <Link className="nav-link" to="/Explore">Explore</Link>
+                </li>
                 <li>
                   <Link className='nav-link' to="/movies/new">Post</Link>
                 </li>
@@ -36,7 +36,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn}) => {
                   <Link className='nav-link' to ="/profile">Profile</Link>
                 </li>
                 <li>
-                  <span className='nav-link' onClick={handleLogout}>Logout</span>
+                  <span className='nav-link' onClick={handleLogOut}>Logout</span>
                 </li>
               </>
             ) : (
