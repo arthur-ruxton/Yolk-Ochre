@@ -2,6 +2,19 @@
 import axios from 'axios'
 import { getToken } from './auth'
 
+export const getAxiosRequestConfig = (requestUrl, data, method = 'post') => {
+  const config = {
+    method,
+    url: `/api${requestUrl}`,
+    headers: { 
+      Authorization: `${getToken()}`,
+      'Content-Type': 'application/json',
+    },
+    data,
+  }
+  return config
+}
+
 //---------- User / Profile section ----------//
 //----- login & register -----//
 const makeAxiosRequest = async (url, data) => {
@@ -24,7 +37,7 @@ export const getUserInfo = async (id) => {
   const config = {
     method: 'get',
     url: `/api/auth/profile/${id}/`,
-    headers: {}
+    headers: {},
   }
   const response = await axios(config)
   return response.data
@@ -35,8 +48,8 @@ export const editUserInfo = async (id) => {
     method: 'put',
     url: `/api/auth/profile/${id}/`,
     headers: {
-      Authorization: `Bearer ${getToken()}`
-    }
+      Authorization: `Bearer ${getToken()}`,
+    },
   }
   const response = await axios(config)
   return response.data
@@ -47,8 +60,8 @@ export const followerFunc = async (id) => {
     method: 'put',
     url: `/api/auth/followToggle/${id}/`,
     headers: {
-      Authorization: `Bearer ${getToken()}`
-    }
+      Authorization: `Bearer ${getToken()}`,
+    },
   }
   const response = await axios(config)
   return response.data
@@ -59,8 +72,8 @@ export const favouriteFunc = async (id) => {
     method: 'put',
     url: `/api/auth/favouriteToggle/${id}/`,
     headers: {
-      Authorization: `Bearer ${getToken()}`
-    }
+      Authorization: `Bearer ${getToken()}`,
+    },
   }
   const response = await axios(config)
   return response.data
@@ -72,8 +85,8 @@ export const postArt = async () => {
     method: 'post',
     url: '/api/art/',
     headers: {
-      Authorization: `Bearer ${getToken()}`
-    }
+      Authorization: `Bearer ${getToken()}`,
+    },
   }
   const response = await axios(config)
   return response.data
@@ -84,8 +97,8 @@ export const editArt = async (id) => {
     method: 'put',
     url: `/api/art/${id}/`,
     headers: {
-      Authorization: `Bearer ${getToken()}`
-    }
+      Authorization: `Bearer ${getToken()}`,
+    },
   }
   const response = await axios(config)
   return response.data
@@ -96,8 +109,8 @@ export const deleteArt = async (id) => {
     method: 'delete',
     url: `/api/art/${id}/`,
     headers: {
-      Authorization: `Bearer ${getToken()}`
-    }
+      Authorization: `Bearer ${getToken()}`,
+    },
   }
   const response = await axios(config)
   return response.data
@@ -109,7 +122,7 @@ export const fetchOneArtwork = async (id) => {
   const config = {
     method: 'get',
     url: `/api/art/${id}/`,
-    headers: {}
+    headers: {},
   }
   const response = await axios(config)
   return response.data
@@ -119,7 +132,7 @@ export const fetchAllArt = async () => {
   const config = {
     method: 'get',
     url: '/api/art/',
-    headers: {}
+    headers: {},
   }
   const response = await axios(config)
   return response.data
@@ -131,8 +144,8 @@ export const postComment = async () => {
     method: 'post',
     url: '/api/comment/',
     headers: {
-      Authorization: `Bearer ${getToken()}`
-    }
+      Authorization: `Bearer ${getToken()}`,
+    },
   }
   const response = await axios(config)
   return response.data
@@ -143,8 +156,8 @@ export const editComment = async (id) => {
     method: 'put',
     url: `/api/comment/${id}/`,
     headers: {
-      Authorization: `Bearer ${getToken()}`
-    }
+      Authorization: `Bearer ${getToken()}`,
+    },
   }
   const response = await axios(config)
   return response.data
@@ -155,8 +168,8 @@ export const deleteComment = async (id) => {
     method: 'delete',
     url: `/api/comment/${id}/`,
     headers: {
-      Authorization: `Bearer ${getToken()}`
-    }
+      Authorization: `Bearer ${getToken()}`,
+    },
   }
   const response = await axios(config)
   return response.data
@@ -166,25 +179,9 @@ export const fetchComments = async () => {
   const config = {
     method: 'get',
     url: '/api/comment/',
-    headers: {}
+    headers: {},
   }
   const response = await axios(config)
   return response.data
 }
 //-----------------------------------------------//
-
-//// what does this do? Is this used for posting art ////
-
-// export const getAxiosRequestConfig = (requestUrl, data, method = 'post') => {
-//   const config = {
-//     method,
-//     url: `/api${requestUrl}`,
-//     headers: { 
-//       Authorization: `${getToken()}`,
-//       'Content-Type': 'application/json'
-//     },
-//     data
-//   }
-//   return config
-// }
-//////////////////////

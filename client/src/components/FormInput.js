@@ -7,7 +7,7 @@ const FormInput = ({
   errorInfo,
   type,
   placeholder,
-  handleFormChange
+  handleFormChange,
 }) => {
   return (
     <div>

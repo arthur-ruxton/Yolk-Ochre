@@ -7,8 +7,6 @@ import { register } from '../helpers/api'
 import FormInput from '../components/FormInput'
 import Form from 'react-bootstrap/Form'
 
-import React from 'react'
-
 const Register = () => {
   const [data, setData] = useState({
     email: '', 
@@ -19,7 +17,7 @@ const Register = () => {
     profile_image: '',
     website: '',
     password: '',
-    passwordConfirmation: ''
+    passwordConfirmation: '',
   })
 
   const [errorInfo, setErrorInfo] = useState({})
@@ -50,7 +48,7 @@ const Register = () => {
     const { name, value } = event.target
     setData({
       ...data,
-      [name]: value
+      [name]: value,
     })
     console.log(data)
   }
