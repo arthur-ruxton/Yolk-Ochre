@@ -10,7 +10,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
   const handleLogOut = () => {
     removeToken()
     setIsLoggedIn(false)
-    navigate('/')
+    navigate('/login')
   }
 
   return (
@@ -24,16 +24,19 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
             {isLoggedIn ? (
               <>
                 <li>
-                  <Link className="nav-link" to="/">Home</Link>
+                  <Link className="nav-link" to="/home">House</Link>
                 </li>
                 <li>
-                  <Link className="nav-link" to="/Explore">Explore</Link>
+                  <Link className="nav-link" to="/explore">Earth</Link>
                 </li>
                 <li>
-                  <Link className='nav-link' to="/movies/new">Post</Link>
+                  <Link className='nav-link' to="/favourites">Heart</Link>
                 </li>
                 <li>
-                  <Link className='nav-link' to ="/profile">Profile</Link>
+                  <Link className='nav-link' to="/new-post">Blank canvas</Link>
+                </li>
+                <li>
+                  <Link className='nav-link' to ="/profile">ProfilePicture</Link>
                 </li>
                 <li>
                   <span className='nav-link' onClick={handleLogOut}>Logout</span>

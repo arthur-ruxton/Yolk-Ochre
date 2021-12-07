@@ -5,10 +5,7 @@ export const getAxiosRequestConfig = (requestUrl, data, method = 'post') => {
   const config = {
     method,
     url: `/api/${requestUrl}`,
-    headers: { 
-      Authorization: `${getToken()}`,
-      'Content-Type': 'application/json',
-    },
+    headers: {},
     data,
   }
   return config

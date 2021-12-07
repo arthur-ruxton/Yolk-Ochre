@@ -21,7 +21,7 @@ const Login = ({ setIsLoggedIn }) => {
     setToken(token)
     setIsLoggedIn(true)
     setIsError(false)
-    navigate('/')
+    navigate('/home')
   }
 
   const handleError = (error) => {
