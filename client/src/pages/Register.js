@@ -1,8 +1,7 @@
 import * as React from 'react'
-// import axios from 'axios'
 import { useState } from 'react'
-// import { setToken } from '../helpers/auth'
 import { useNavigate } from 'react-router-dom'
+
 import { register } from '../helpers/api'
 import FormInput from '../components/FormInput'
 import Form from 'react-bootstrap/Form'
@@ -17,7 +16,7 @@ const Register = () => {
     profile_image: '',
     website: '',
     password: '',
-    passwordConfirmation: '',
+    password_confirmation: '',
   })
 
   const [errorInfo, setErrorInfo] = useState({})
@@ -111,7 +110,7 @@ const Register = () => {
           <FormInput
             placeholder="Confirm password" 
             type='password' 
-            name='passwordConfirmation'   
+            name='password_confirmation'   
             {...formInputProps} 
           />
           <Form.Control type="submit" value="Register" />
