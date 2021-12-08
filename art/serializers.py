@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import Art
-from jwt_auth.serializers import UserSerializer
+from jwt_auth.serializers import UserSerializer, PopulatedUserSerializer
 from comment.serializers import CommentSerializer
 
 class ArtSerializer(serializers.ModelSerializer):
@@ -9,7 +9,7 @@ class ArtSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class PopulatedArtSerializer(ArtSerializer):
-    owner = UserSerializer()
+    owner = PopulatedUserSerializer()
     likes = UserSerializer(many=True)
     comments = CommentSerializer(many=True)
        

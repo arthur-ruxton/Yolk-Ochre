@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status # to send status code
 from rest_framework.permissions import IsAuthenticatedOrReadOnly # <-- django permissions
 from .models import Art # <------------------------------------- import the model we're working with
+from jwt_auth.models import User
 
 from .serializers import ArtSerializer
 from .serializers import PopulatedArtSerializer # <-- serializers are a mechanism for translating Django models into other formats, in this case jason
@@ -60,10 +61,11 @@ class ArtListView(APIView):
 
 class LikeToggle(APIView): 
     permission_classes = (IsAuthenticatedOrReadOnly,)
-
-    def put(self, request, pk): # <------------- pass this function art-to-like id
+    
+    def put(self, request, pk,): # <------------- pass this function art-to-like id
         artToLike = Art.objects.get(id=pk)
-        currentUser = request.user
+        # currentUser = request.user
+        currentUser = User.objects.get(id=request.user.id)
         likes = artToLike.likes.all()
         
         if currentUser in likes:
