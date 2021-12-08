@@ -57,6 +57,25 @@ class ArtListView(APIView):
         serialized_art = PopulatedArtSerializer(art, many=True) # serialize for sending over the wire
         return Response(serialized_art.data, status=status.HTTP_200_OK)
 
+
+class LikeToggle(APIView): 
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
+    def put(self, request, pk): # <------------- pass this function art-to-like id
+        artToLike = Art.objects.get(id=pk)
+        currentUser = request.user
+        likes = artToLike.likes.all()
+        
+       
+        if currentUser in likes:
+            artToLike.likes.remove(currentUser)
+        else:
+            artToLike.likes.add(currentUser)
+
+        artToLike.save()
+        serialized_art = ArtSerializer(artToLike)
+        return Response(serialized_art.data, status=status.HTTP_202_ACCEPTED)
+
+
 def home(request):
     return Response('<h1>hello world</h1>')
-

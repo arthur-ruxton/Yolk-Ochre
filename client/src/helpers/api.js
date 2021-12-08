@@ -117,7 +117,7 @@ export const deleteArt = async (id) => {
 export const fetchOneArtwork = async (id) => {
   const config = {
     method: 'get',
-    url: `/api/art/${id}/`,
+    url: `/api/art/${id}`,
     headers: {},
   }
   const response = await axios(config)

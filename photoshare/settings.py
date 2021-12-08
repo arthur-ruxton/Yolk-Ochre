@@ -33,7 +33,6 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'jwt_auth',
     'art',
-    'like',
     'comment',
     'rest_framework',
     'django.contrib.admin',

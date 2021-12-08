@@ -1,31 +1,32 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
-import { Link, useParams } from 'react-router-dom' 
+import { Link, useParams } from 'react-router-dom'
+//import { fetchOneArtwork } from '../helpers/api'
 import { getToken, getCurrentUserId } from '../helpers/auth'
-import { fetchOneArtwork } from '../helpers/api'
 
-const ViewOnePost = () => {
-  const [artwork, setArtwork] = useState()
-
-  const { id } = useParams()
-  console.log(id) // <-- this works
+const ViewOnePost = () => { // <-- this works
+  const [artwork, setArtwork] = useState({})
+  const { id } = useParams() 
 
   const getArtwork = useCallback(async () => {
     try {
-      fetchOneArtwork(id).then(setArtwork)
+      //fetchOneArtwork(id).then(setArtwork)
+      const { data } = await axios.get(`/api/art/${id}`)
+      setArtwork(data)
     } catch (error) {
       console.log(error)
     }
   }, [id])
-  
-  useEffect(() => {
+
+  useEffect(() => { // <-- this works
     getArtwork()
-  }, [getArtwork])
+  }, [getArtwork]) 
 
   const handleLike = async () => {
     try {
       await axios.post(
-        'api/like',
+        '/api/like/',
         {
           artwork: artwork.id,
           likes: true,
@@ -37,24 +38,11 @@ const ViewOnePost = () => {
       console.log(error)
     }
   }
-   
-  const handleDislike = async (likeId) => {
-    try {
-      await axios.delete(
-        `api/like/${likeId}`,
-        { headers: { Authorization: `Bearer ${getToken()}` } }
-      )
-      await getArtwork()
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
-  const userId = getCurrentUserId()
-  const like = artwork && artwork.like.find((like) => like.owner === userId)
-  const doesUserLike = userId && like //!!
-  console.log(`user likes ${doesUserLike}`)
+  console.log(`user does like ${userDoesLike}`)
 
+  console.log(artwork) // <-- this works
+  
   return (
     <>
       <div>{id}</div>
@@ -63,7 +51,7 @@ const ViewOnePost = () => {
         <div className="art-info-div">
           <div className="likes-div">
             {
-              doesUserLike ? 
+              userDoesLike ? 
                 (<p className="like-button" onClick={handleDislike(like.id)}>red heart</p>) : 
                 (<p className="dislike-button" onClick={handleLike}>empty heart</p>)
             }

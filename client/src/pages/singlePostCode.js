@@ -1,91 +1,88 @@
-
 import React, { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
-import { getToken, getCurrentUserId } from '../Helpers/Auth'
+import { Link, useParams } from 'react-router-dom' 
+import { getToken, getCurrentUserId } from '../helpers/auth'
+// import { fetchOneArtwork } from '../helpers/api'
 
-
-const SingleArtwork = () => {
-  const [event, setEvent] = useState()
-  const [hasError, setHasError] = useState(false)
+const ViewOnePost = () => {
+  const [artwork, setArtwork] = useState({})
 
   const { id } = useParams()
+  console.log(id) // <-- this works
 
-  const getEvent = useCallback(async () => {
+  const getArtwork = useCallback(async () => {
     try {
-      const { data } = await axios.get(`/api/events/${id}/`)
-      setEvent(data)
-      console.log(data)
+      //fetchOneArtwork(id).then(setArtwork)
+      const { data } = await axios.get(`/api/art/${id}`)
+      setArtwork(data)
     } catch (error) {
-      setHasError(true)
+      console.log(error)
     }
   }, [id])
-
+  
   useEffect(() => {
-    getEvent()
-  }, [getEvent])
+    getArtwork()
+  }, [getArtwork])
 
-  const handleAttending = async () => {
+  const handleLike = async () => {
     try {
       await axios.post(
-        `/api/join/`,
+        'api/like',
         {
-          event: event.id,
-          going: true,
+          artwork: artwork.id,
+          likes: true,
         },
         { headers: { Authorization: `Bearer ${getToken()}` } }
       )
-      await getEvent()
+      await getArtwork()
     } catch (error) {
       console.log(error)
     }
   }
-
-  const handleNotAttending = async (joinId) => {
+   
+  const handleDislike = async (likeId) => {
     try {
-      await axios.delete(`/api/join/${joinId}/`, {
-        headers: { Authorization: `Bearer ${getToken()}` },
-      })
-      await getEvent()
+      await axios.delete(
+        `api/like/${likeId}`,
+        { headers: { Authorization: `Bearer ${getToken()}` } }
+      )
+      await getArtwork()
     } catch (error) {
       console.log(error)
     }
   }
-
+  
   const userId = getCurrentUserId()
-  const join = event && event.join.find((join) => join.owner === userId)
-  const isUserAttending = userId && !!join
+  const like = artwork && artwork.like.find((like) => like.owner === userId)
+  const userDoesLike = userId && !!like
 
-  console.log(`user is attending ${isUserAttending}`)
+  console.log(`user does like ${userDoesLike}`)
 
   return (
-    <div>
-      {event ? (
-        <>
-          <Img src={event.event_image} alt={event.event_title} />
-          <Div>
-            <Title>{event.event_title}</Title>
-            <Card>
-              <Attending>
-                {isUserAttending
-                  ? 'You are already attending'
-                  : 'You are not attending yet'}
-              </Attending>
-              <Attending>
-                <Color>{event.join.length}</Color>
-              </Attending>
-              <Attending>people attending</Attending>
-              {isUserAttending ? (
-                <Going onClick={() => handleNotAttending(join.id)}>
-                  Cancel
-                </Going>
-              ) : (
-                <Going onClick={handleAttending}>I want to go</Going>
-              )}
-            </Card>
-          </Div>
-        </>
-      )}
-    </div>
+    <>
+      <div>{id}</div>
+      <div className="art-div">
+        <img src={artwork.image} alt={'alt'}/>
+        <div className="art-info-div">
+          <div className="likes-div">
+            {
+              doesUserLike ? 
+                (<p className="like-button" onClick={handleDislike(likes.id)}>red heart</p>) : 
+                (<p className="dislike-button" onClick={handleLike}>empty heart</p>)
+            }
+            <p className="like-number">
+              {artwork.like.length}
+            </p>
+          </div>
+          <p className="art-show-title">
+            <Link to={`profile/${artwork.owner.id}`}>{artwork.owner.username}</Link>
+          </p>
+          <p className="artDescription">{artwork.caption}</p>
+          <p calssName="expand-button">expand icon</p>
+        </div>
+      </div>
+    </>
   )
 }
+
+export default ViewOnePost
