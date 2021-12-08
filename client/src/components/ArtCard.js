@@ -9,7 +9,7 @@ const ArtCard = ({
   image, 
   caption,
   location,
-  like,
+  likes,
   comments,
 }) => {
 
@@ -18,7 +18,7 @@ const ArtCard = ({
       <div className="art-card">
         <img src={image} alt={caption} />
         <div className="card-body">
-          <p className="likes">likes: {like.length}</p>
+          <p className="likes">likes: {likes.length}</p>
           <p className="card-username">{owner.username}</p>
           <p className="card-text">{caption}</p>
           <p className="card-location">{location}</p>

@@ -66,7 +66,6 @@ class LikeToggle(APIView):
         currentUser = request.user
         likes = artToLike.likes.all()
         
-       
         if currentUser in likes:
             artToLike.likes.remove(currentUser)
         else:
