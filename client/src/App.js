@@ -13,6 +13,7 @@ import Register from './pages/Register'
 import Home from './pages/Home'
 import Explore from './pages/Explore'
 import PersonalProfile from './pages/PersonalProfile'
+import OtherProfiles from './pages/OtherProfiles'
 import Favourites from './pages/Favourites'
 import NewPost from './pages/NewPost'
 import ViewOnePost from './pages/ViewOnePost'
@@ -40,6 +41,7 @@ function App() {
           <Route path="/home/" element={<Home />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="/personalprofile" element={<PersonalProfile />} />
+          <Route path="/otherprofiles/:id" element={<OtherProfiles />} />
           <Route path="/favourites" element={<Favourites />} />
           <Route path="/view-one-post/:id" element={<ViewOnePost />} />
           <Route path="/new-post" element={<NewPost />} />
