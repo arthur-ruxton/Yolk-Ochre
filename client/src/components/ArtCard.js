@@ -1,30 +1,32 @@
 
 import React from 'react'
-import Card from 'react-bootstrap/Card'
-//import Button from '@restart/ui/esm/Button'
-//import { Link } from 'react-router-dom'
+// import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+import { Link } from 'react-router-dom'
 
 const ArtCard = ({
   id,
+  owner,
   image, 
   caption,
-  owner,
+  location,
+  like,
+  comments,
 }) => {
-
-  console.log(owner)
 
   return (
     <div>
-      <Card style={{ width: '18rem' }} className="movie-card">
-        <Card.Img className="card-image" variant="top" src={image} 
-          alt={caption} style={{ height: '100%', width: '50%' }}/>
-        <Card.Body className="card-body">
-          <Card.Title className="card-title">{owner.username}</Card.Title>
-          <Card.Text className="card-text">
-            {caption} id = {id}
-          </Card.Text>
-        </Card.Body>
-      </Card>
+      <div className="art-card">
+        <img src={image} alt={caption} />
+        <div className="card-body">
+          <p className="likes">likes: {like.length}</p>
+          <p className="card-username">{owner.username}</p>
+          <p className="card-text">{caption}</p>
+          <p className="card-location">{location}</p>
+          <p className="card-comments">{comments}</p>
+          <Button><Link to={`/view-one-post/${id}`}>View</Link></Button>
+        </div>
+      </div>
     </div>
   )
 }

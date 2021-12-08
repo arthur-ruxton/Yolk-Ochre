@@ -3,6 +3,8 @@ from rest_framework.response import Response
 from rest_framework import status # to send status code
 from rest_framework.permissions import IsAuthenticatedOrReadOnly # <-- django permissions
 from .models import Art # <------------------------------------- import the model we're working with
+
+from .serializers import ArtSerializer
 from .serializers import PopulatedArtSerializer # <-- serializers are a mechanism for translating Django models into other formats, in this case jason
 
 class ArtDetailView(APIView): 
@@ -20,7 +22,7 @@ class ArtDetailView(APIView):
     # EDIT ONE
     def put(self, request, pk):
         art = Art.objects.get(id=pk) # django ORM method to grab one by its id
-        updated_art = PopulatedArtSerializer(art, data=request.data)
+        updated_art = ArtSerializer(art, data=request.data)
         if updated_art.is_valid():
             updated_art.save()
             return Response(updated_art.data,status=status.HTTP_202_ACCEPTED)
@@ -40,7 +42,7 @@ class ArtListView(APIView):
 
      #POST /art/
     def post(self, request):
-        art = PopulatedArtSerializer(data = request.data)
+        art = ArtSerializer(data = request.data)
         if art.is_valid():
             # art.save() # <-- django orm method to save
             # art.save(owner = [request.user]) # <---- assigning ownership after POST

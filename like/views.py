@@ -5,6 +5,8 @@ from rest_framework.exceptions import NotFound, PermissionDenied
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from .models import Like
+from art.models import Art
+
 from .serializers import LikeSerializer
 
 # Create your views here.
@@ -42,3 +44,21 @@ class LikeDetailView(APIView):
                 raise PermissionDenied(detail="Unauthorized")
         like_to_delete.delete()
         return Response(status=status.HTTP_204_NO_CONTENT) 
+
+
+#class LikeToggle(APIView): # <-- rename followToggle
+#    permission_classes = (IsAuthenticatedOrReadOnly,)
+#
+#    def put(self, request, pk): # <------------- pass this function user-to-follows id
+#        artToLike = Art.objects.get(id=pk)
+#        currentUser = request.user.id
+#        likes = artToLike.like.all()
+#        
+#        if currentUser in likes:
+#            artToLike.likes.remove(currentUser)
+#        else:
+#            artToLike.likes.add(currentUser)
+#
+#        currentUser.save()
+#        serialized_art = ArtSerializer(currentUser)
+#        return Response(serialized_user.data, status=status.HTTP_202_ACCEPTED)
