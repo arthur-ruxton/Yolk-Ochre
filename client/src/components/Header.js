@@ -36,7 +36,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
                   <Link className='nav-link' to="/new-post">Blank canvas</Link>
                 </li>
                 <li>
-                  <Link className='nav-link' to ="/profile">ProfilePicture</Link>
+                  <Link className='nav-link' to ="/personalprofile">ProfilePicture</Link>
                 </li>
                 <li>
                   <span className='nav-link' onClick={handleLogOut}>Logout</span>
