@@ -30,10 +30,10 @@ function App() {
 
   return (
     <>
-      <Router>
-        <body>
+      <body>
+        <Router>
           <header>
-            <Header isLoggedIn={isLoggedIn}/>
+            <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
           </header>
           <main>
             <Routes>
@@ -50,8 +50,8 @@ function App() {
           <footer>
             <Footer />
           </footer>
-        </body>
-      </Router>
+        </Router>
+      </body>
     </>
   )
 }

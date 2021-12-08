@@ -6,14 +6,14 @@ from django.db import models
 class Like(models.Model):
     artwork = models.ForeignKey(
         "art.Art",
-        related_name="likes",
+        related_name="like",
         on_delete=models.CASCADE
     )
     likes = models.BooleanField(default=True)
 
     owner = models.ForeignKey(
         "jwt_auth.User",
-        related_name="user_who_likes",
+        related_name="like",
         on_delete=models.CASCADE
     )
 
