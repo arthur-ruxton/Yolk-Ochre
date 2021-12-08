@@ -5,6 +5,8 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly # <-- django pe
 from rest_framework.exceptions import PermissionDenied # <------ exceptions 
 from django.conf import settings
 import jwt # <---------------------------------- import json webtoken
+
+from .serializers import UserSerializer
 from .serializers import PopulatedUserSerializer
 from .models import User # <-------------------- custom user model -> else use -> #from django.contrib.auth import get_user_model 
 
@@ -14,7 +16,7 @@ from django.urls import reverse
 class RegisterView(APIView):
     # POST REGISTER INFO
     def post(self, request):
-        serializer = PopulatedUserSerializer(data=request.data)
+        serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response({'message': 'Registration successful'})
@@ -62,7 +64,7 @@ class UserDetailView(APIView):
     # EDIT USER INFO
     def put(self, request, pk):
         user = User.objects.get(id=pk) # django ORM method to grab one by its id
-        updated_user = PopulatedUserSerializer(user, data=request.data)
+        updated_user = UserSerializer(user, data=request.data)
         if updated_user.is_valid():
             updated_user.save()
             return Response(updated_user.data,status=status.HTTP_202_ACCEPTED)
@@ -85,7 +87,7 @@ class FollowToggle(APIView): # <-- rename followToggle
                 currentUser.following.add(userToFollow)
     
         currentUser.save()
-        serialized_user = PopulatedUserSerializer(currentUser)
+        serialized_user = UserSerializer(currentUser)
         return Response(serialized_user.data, status=status.HTTP_202_ACCEPTED)
 
 
@@ -104,7 +106,7 @@ class FavouriteToggle(APIView): # <-- rename followToggle
                 currentUser.favourites.add(userToFavourite)
     
         currentUser.save()
-        serialized_user = PopulatedUserSerializer(currentUser)
+        serialized_user = UserSerializer(currentUser)
         return Response(serialized_user.data, status=status.HTTP_202_ACCEPTED)
 
 

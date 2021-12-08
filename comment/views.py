@@ -4,7 +4,9 @@ from rest_framework import status # to send status code
 from rest_framework.permissions import IsAuthenticatedOrReadOnly # <-- django permissions
 
 from .models import Comment
+
 from .serializers import CommentSerializer
+from .serializers import PopulatedCommentSerializer
 
 class CommentsDetailView(APIView):
     permission_classes = (IsAuthenticatedOrReadOnly,)
@@ -50,5 +52,5 @@ class CommentListView(APIView):
     #GET /comments/
     def get(self, request):
         comments = Comment.objects.all()
-        serialized_comments = CommentSerializer(comments, many=True) # serialize for sending over the wire
+        serialized_comments = PopulatedCommentSerializer(comments, many=True) # serialize for sending over the wire
         return Response(serialized_comments.data, status=status.HTTP_200_OK)

@@ -18,7 +18,7 @@ export const getPayload = () => {
   return JSON.parse(atob(splitToken[1]))
 }
 
-export const getUserId = () => {
+export const getCurrentUserId = () => {
   const payload = getPayload()
   return payload && payload.sub
 }
