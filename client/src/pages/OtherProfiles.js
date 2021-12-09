@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
-import { fetchAllArt } from '../helpers/api'
-import ArtCard from '../components/ArtCard'
+import { getToken } from '../helpers/auth'
 import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 
-const PersonalProfile = () => {
-  const [artList, setArtList] = useState([])
-
+const OtherUserProfile = () => {
   const [username, setUsername] = useState()
   const [fname, setFname] = useState()
   const [lname, setLname] = useState()
@@ -20,16 +18,11 @@ const PersonalProfile = () => {
   // const [email, setEmail] = useState()
   // const [website, setWebsite] = useState()
 
-  useEffect(() => {
-    fetchAllArt().then(setArtList)
-  }, [])
-
   const idObj = useParams()
   const otherUserId = idObj.id
-  
 
-  useEffect(() => {
-    const getUserInfo = async () => {
+  const getUserInfo = useCallback(async () => {
+    try {
       const { data } = await axios.get(`/api/auth/profile/${otherUserId}/`)
       setUsername(data.username)
       setFname(data.first_name)
@@ -42,59 +35,81 @@ const PersonalProfile = () => {
       setFavouritedBy(data.favouritedBy)
       // setEmail(data.email)
       // setWebsite(data.website)
+    } catch (error) {
+      console.log('errore', error)
     }
-    getUserInfo()
   }, [otherUserId])
 
-  const userArtList = []
+  useEffect(() => { // <-- this works
+    getUserInfo()
+  }, [getUserInfo]) 
 
-  for (let i = 0; i < artList.length; i++){
-    if ((artList[i].owner.id) === otherUserId) {
-      userArtList.push(artList[i])
+  const handleFollow = async () => {
+    const config = {
+      method: 'put',
+      url: `/api/auth/followToggle/${otherUserId}/`,
+      headers: {
+        Authorization: `Bearer ${getToken()}`,
+      },
     }
-  }  
+    try {
+      await axios(config)
+      await getUserInfo()
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
-  const followingIds = following.map(user => user.id)
-  const followersIds = followers.map(user => user.id)
-  const favouritesIds = favourites.map(user => user.id)
-  const favouritedByIds = favouritedBy.map(user => user.id)
+  const handleFavourite = async () => {
+    const config = {
+      method: 'put',
+      url: `/api/auth/favouriteToggle/${otherUserId}/`,
+      headers: {
+        Authorization: `Bearer ${getToken()}`,
+      },
+    }
+    try {
+      await axios(config)
+      await getUserInfo()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  // const followingIds = following.map(user => user.id)
+  // const followersIds = followers.map(user => user.id)
+  // const favouritesIds = favourites.map(user => user.id)
+  // const favouritedByIds = favouritedBy.map(user => user.id)
 
   return (
-    <div>
+    <div className="profile">
       <div className="user-details">
-        <Card>
-          <Card.Img className="pp" variant="top" src={`${pp}`} style={{ minWidth: '200px' }}/>
-          <Card.Body className="card-body">
+        <Card style={{ width: '35rem' }}>
+          <Card.Img className="pp" variant="top" src={`${pp}`} />
+          <Card.ImgOverlay>
             <Card.Title className='card-title'>
-              <p className="username">{username}</p>
+              {username}
             </Card.Title>
+          </Card.ImgOverlay>
+        </Card>
+        <Card style={{ width: '35rem' }}>
+          <Card.Body className="card-body">
+            <Card.Text className="bio">
+              {fname} {lname}: {bio}
+            </Card.Text>
+            <Button onClick={handleFollow}>Heart</Button><Card.Text>Followers: {followers.length}</Card.Text>
             <Card.Text>
-              <p className="bio">{fname} {lname}: {bio}</p>
+              following: {following.length}
             </Card.Text>
             <Card.Text>
-              <p>followers</p>
-              <p className="followers-count">{followersIds.length}</p>
-              <p>following</p>
-              <p className="following-count">{followingIds.length}</p>
-              <p>favourites</p>
-              <p>{favouritesIds}</p>
-              <p>favourited by</p>
-              <p>{favouritedByIds}</p>
+              favourites: {favourites.length}
             </Card.Text>
+            <Button onClick={handleFavourite}>Heart</Button><Card.Text>Favourited by: {favouritedBy.length}</Card.Text>
           </Card.Body>
         </Card>
-      </div>
-      <div>
-        <ul className="art-list">
-          {userArtList.map((m) => (
-            <li key={m.id}>
-              <ArtCard {...m} />
-            </li>
-          ))}
-        </ul>
       </div>
     </div>
   )
 }
 
-export default PersonalProfile
+export default OtherUserProfile

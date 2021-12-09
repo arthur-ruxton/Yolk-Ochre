@@ -4,6 +4,7 @@ import ArtCard from '../components/ArtCard'
 import { getCurrentUserId } from '../helpers/auth'
 import axios from 'axios'
 
+
 const Home = () => {
   const [artList, setArtList] = useState([])
   const [userFollowing, setUserFollowing] = useState([])
@@ -34,15 +35,11 @@ const Home = () => {
   
 
   return (
-    <div className="artlist-container">
-      <ul className="art-list">
-        {followingArtList.map((m) => (
-          <li key={m.id}>
-            <ArtCard {...m} />
-          </li>
-        ))}
-      </ul>
-    </div>
+    <div className='art-list'>
+      {followingArtList.map((m) => (
+        <ArtCard {...m} key={m.id}/>
+      ))}
+    </div>   
   )
 }
 

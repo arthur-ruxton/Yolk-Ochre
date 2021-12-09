@@ -1,5 +1,5 @@
 import React from 'react'
-// import Card from 'react-bootstrap/Card'
+import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
 import { getCurrentUserId } from '../helpers/auth'
@@ -17,23 +17,29 @@ const ArtCard = ({
   const personalId = getCurrentUserId() 
   
   return (
-    <div className="art-card">
-      <img src={image} alt={caption} />
-      <div className="card-body">
-        <p className="likes">likes: {likes.length}</p>
-        <span className="card-username">
-          {
-            owner.id === personalId ?
-              <Link to={'/personalprofile'}>{owner.username}</Link >
-              : <Link to={`/otherprofiles/${owner.id}`}>{owner.username}</Link >
-          }
-        </span>
-        <span className="card-text">{caption}</span>
-        <p className="card-location">{location}</p>
-        <p className="card-comments">{comments}</p>
-        <Button className="button"><Link className="link" to={`/view-one-post/${id}`}>View</Link></Button>
-      </div>
-    </div> 
+    <div className='card-div'>
+      <Card className="art-card" style={{ width: '30rem' }} >
+        <Card.Img src={image} alt={caption} variant="top" />
+      </Card>
+      <Card className="art-card" style={{ width: '30rem' }} >
+        <Card.Body>
+          <Card.Text className="likes">likes: {likes.length}</Card.Text>
+          <Card.Title className="card-username">
+            {
+              owner.id === personalId ?
+                <Link to={'/personalprofile'}>{owner.username}</Link >
+                : <Link to={`/otherprofiles/${owner.id}`}>{owner.username}</Link >
+            }
+          </Card.Title>
+          <Card.Text className="caption">{caption}</Card.Text>
+          <Card.Text className="location">{location}</Card.Text>
+          <Card.Text className="comments">{comments}</Card.Text>
+          <Card.Footer>
+            <Button className="button"><Link className="link" to={`/view-one-post/${id}`}>View</Link></Button>
+          </Card.Footer>
+        </Card.Body>
+      </Card> 
+    </div>
   )
 }
 

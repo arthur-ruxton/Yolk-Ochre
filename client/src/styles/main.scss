@@ -1,6 +1,7 @@
 @import "colors";
 @import "header";
 @import "artlist";
+@import "profile";
 
 * {
   box-sizing: border-box;
@@ -12,6 +13,7 @@ body {
   justify-content: center;
   font-family: 'Epilogue', sans-serif;
   font-size: 1em;
+  color: $liver-chesnut;
   // color: $mid-dark-brown
   #root {
     width: 100%;
@@ -41,7 +43,7 @@ body {
 .button {
   width: 60px;
   color: $yolk-ochre;
-  border: 2px solid $butter-yellow;
+  border: 2px solid $yolk-ochre;
   background-color: white;
   border-radius: 20px;
   text-align: center;
@@ -50,11 +52,11 @@ body {
 }
 .button:hover {
   background-color: white;
-  border: 2px solid $butter-yellow;
+  border: 2px solid $yolk-ochre;
   color: $earth-yellow;
   .link {
     text-decoration: none;
-    color: $copper-red;
+    color: $yolk-ochre;
     .link:hover {
       text-decoration: none;
       color: white;
@@ -62,11 +64,15 @@ body {
   }
 }
 
-.link {
+.link, .nav-link, a {
   text-decoration: none;
-  color: $copper-red;
-  .link:hover {
-    text-decoration: none;
-    color: white;
+  color: $liver-chesnut;
+  .link:hover, .nav-like:hover, a:hover {
+    color: $yolk-ochre;
   }
 }
+
+// .nav-link {
+//   text-decoration: none;
+//   color: $yolk-ochre;
+// }

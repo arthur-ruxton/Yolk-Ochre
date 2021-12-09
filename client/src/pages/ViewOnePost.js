@@ -1,9 +1,10 @@
 import React from 'react'
 import { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
-import { useParams } from 'react-router-dom' //Link
+import { useParams, Link } from 'react-router-dom' //Link
 // import { fetchOneArtwork } from '../helpers/api'
-import { getToken } from '../helpers/auth'
+import { getToken, getCurrentUserId } from '../helpers/auth'
+import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
 const ViewOnePost = () => { // <-- this works
@@ -55,14 +56,24 @@ const ViewOnePost = () => { // <-- this works
     }
   }
 
+  const personalId = getCurrentUserId()
+
   return (
-    <>
-      <div><p>{artOwner.username}</p></div>
-      <div><img src={artImage} /></div>
-      <div><p>{artCaption}</p></div>
-      <div><p>{artLocation}</p></div>
-      <div><Button onClick={handleLike}>Heart</Button><p>{artLikes.length}</p></div>
-    </>
+    <Card className="art-card" style={{ width: '35rem' }}>
+      <Card.Img src={artImage} alt={artCaption} variant="top" />
+      <Card.Body>
+        <Button onClick={handleLike}>Heart</Button><Card.Text>{artLikes.length}</Card.Text>
+        <Card.Title className="card-username">
+          {
+            artOwner.id === personalId ?
+              <Link to={'/personalprofile'}>{artOwner.username}</Link >
+              : <Link to={`/otherprofiles/${artOwner.id}`}>{artOwner.username}</Link >
+          }
+        </Card.Title>
+        <Card.Text className="caption">{artCaption}</Card.Text>
+        <Card.Text className="location">{artLocation}</Card.Text>
+      </Card.Body>
+    </Card> 
   )
 }
 

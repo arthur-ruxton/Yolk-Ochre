@@ -5,6 +5,7 @@ import { fetchAllArt } from '../helpers/api'
 import ArtCard from '../components/ArtCard'
 import Card from 'react-bootstrap/Card'
 
+
 const PersonalProfile = () => {
   const [artList, setArtList] = useState([])
 
@@ -23,7 +24,7 @@ const PersonalProfile = () => {
   useEffect(() => {
     fetchAllArt().then(setArtList)
   }, [])
-
+  
   const userId = getCurrentUserId()
 
   useEffect(() => {
@@ -52,45 +53,46 @@ const PersonalProfile = () => {
     }
   }  
 
-  const followingIds = following.map(user => user.id)
-  const followersIds = followers.map(user => user.id)
-  const favouritesIds = favourites.map(user => user.id)
-  const favouritedByIds = favouritedBy.map(user => user.id)
+  // const followingIds = following.map(user => user.id)
+  // const followersIds = followers.map(user => user.id)
+  // const favouritesIds = favourites.map(user => user.id)
+  // const favouritedByIds = favouritedBy.map(user => user.id)
+
 
   return (
-    <div>
+    <div className="profile">
       <div className="user-details">
-        <Card>
-          <Card.Img className="pp" variant="top" src={`${pp}`} style={{ minWidth: '200px' }}/>
+        <Card style={{ width: '35rem' }}>
+          <Card.Img className="pp" variant="top" src={`${pp}`} />
+        </Card>
+        <Card style={{ width: '35rem' }}>
           <Card.Body className="card-body">
             <Card.Title className='card-title'>
-              <p className="username">{username}</p>
+              {username}
             </Card.Title>
-            <Card.Text>
-              <p className="bio">{fname} {lname}: {bio}</p>
+            <Card.Text className="bio">
+              {fname} {lname}: {bio}
             </Card.Text>
             <Card.Text>
-              <p>followers</p>
-              <p className="followers-count">{followersIds.length}</p>
-              <p>following</p>
-              <p className="following-count">{followingIds.length}</p>
-              <p>favourites</p>
-              <p>{favouritesIds}</p>
-              <p>favourited by</p>
-              <p>{favouritedByIds}</p>
+              followers: {followers.length}
+            </Card.Text>
+            <Card.Text>
+              following: {following.length}
+            </Card.Text>
+            <Card.Text>
+              favourites: {favourites.length}
+            </Card.Text>
+            <Card.Text>
+              favourited by: {favouritedBy.length}
             </Card.Text>
           </Card.Body>
         </Card>
       </div>
-      <div className="artlist-container">
-        <ul className="art-list">
-          {userArtList.map((m) => (
-            <li key={m.id}>
-              <ArtCard {...m} />
-            </li>
-          ))}
-        </ul>
-      </div>
+      <div className='art-list'>
+        {userArtList.map((m) => (
+          <ArtCard {...m} key={m.id}/>
+        ))}
+      </div> 
     </div>
   )
 }

@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { Link } from 'react-router-dom'
 import { removeToken } from '../helpers/auth'
 import { useNavigate } from 'react-router-dom'
 // import SearchBar from '../pages/SearchBar'
@@ -24,10 +23,10 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
         (
           <Navbar expand={false}>
             <Container fluid>
-              <Nav.Link><Link className="nav-link" to="/home">House</Link></Nav.Link>
-              <Nav.Link><Link className="nav-link" to="/explore">Earth</Link></Nav.Link>
-              <Nav.Link><Link className='nav-link' to="/favourites">Heart</Link></Nav.Link>
-              <Navbar.Toggle aria-controls="offcanvasNavbar" classname="navbar-toggle"/>
+              <Nav.Link href="/home">House</Nav.Link>
+              <Nav.Link href="/explore">Earth</Nav.Link>
+              <Nav.Link href="/favourites">Heart</Nav.Link>
+              <Navbar.Toggle aria-controls="offcanvasNavbar" className="navbar-toggle"/>
               <Navbar.Offcanvas
                 id="offcanvasNavbar"
                 aria-labelledby="offcanvasNavbarLabel"
@@ -35,9 +34,9 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
               >
                 <Offcanvas.Body>
                   <Nav className="justify-content-end flex-grow-1 pe-3">
-                    <Nav.Link><Link className='nav-link' to="/new-post">Blank canvas</Link></Nav.Link>
-                    <Nav.Link><Link className='nav-link' to ="/personalprofile">ProfilePicture</Link></Nav.Link>
-                    <Nav.Link><span className='nav-link' onClick={handleLogOut}>Logout</span></Nav.Link>
+                    <Nav.Link href="/new-post">Blank canvas</Nav.Link>
+                    <Nav.Link href="/personalprofile">ProfilePicture</Nav.Link>
+                    <Nav.Link onClick={handleLogOut}>Logout</Nav.Link>
                   </Nav>
                 </Offcanvas.Body>
               </Navbar.Offcanvas>
@@ -46,8 +45,8 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
         ) : (
           <>
             <Navbar bg="light" expand={false}>
-              <Nav.Link><Link className='nav-link' to="/login">Log In</Link></Nav.Link>
-              <Nav.Link><Link className='nav-link' to="/register">Sign Up</Link></Nav.Link>
+              <Nav.Link href="/login">Log In</Nav.Link>
+              <Nav.Link href="/register">Sign Up</Nav.Link>
             </Navbar>
           </>
         )}
