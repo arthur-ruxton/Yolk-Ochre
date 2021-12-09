@@ -82,7 +82,7 @@ const PersonalProfile = () => {
           </Card.Body>
         </Card>
       </div>
-      <div>
+      <div className="artlist-container">
         <ul className="art-list">
           {userArtList.map((m) => (
             <li key={m.id}>

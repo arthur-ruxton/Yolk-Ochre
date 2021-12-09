@@ -6,10 +6,12 @@ from comment.serializers import CommentSerializer
 class ArtSerializer(serializers.ModelSerializer):
     class Meta:
         model = Art
-        fields = '__all__'
+        fields = ('image', 'caption', 'location', 'id')
 
 class PopulatedArtSerializer(ArtSerializer):
     owner = PopulatedUserSerializer()
     likes = UserSerializer(many=True)
     comments = CommentSerializer(many=True)
-       
+    class Meta:
+        model = Art
+        fields = '__all__'

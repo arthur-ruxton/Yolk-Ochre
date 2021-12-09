@@ -38,22 +38,22 @@ const ViewOnePost = () => { // <-- this works
   }, [getArtwork]) 
 
   const handleLike = async () => {
+
+    const config = {
+      method: 'put',
+      url: `/api/art/likeToggle/${artId}/`,
+      headers: {
+        Authorization: `Bearer ${getToken()}`,
+      },
+    }
+
     try {
-      await axios.put(
-        `/api/art/likeToggle/${artId}/`,
-        {
-          headers: {
-            Authorization: `Bearer ${getToken()}`,
-          },
-        }
-      )
+      await axios(config)
       await getArtwork()
     } catch (error) {
       console.log(error)
     }
   }
-
-  
 
   return (
     <>

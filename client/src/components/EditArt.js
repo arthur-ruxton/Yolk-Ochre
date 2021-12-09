@@ -1,16 +1,22 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import Form from 'react-bootstrap/Form'
 import PostArtForm from '../components/PostArtForm'
 import { getToken } from '../helpers/auth'
 
-const NewPost = () => {
+const EditPost = () => {
   const [data, setData] = useState({
     image: '',
     caption: '',
     location: '',
   })
+
+  const { id } = useParams()
+
+  useEffect(() => {
+    fetchOne(id).then(setMovie)
+  }, [id])
 
   const [errorInfo, setErrorInfo] = useState({})
   const [isError, setIsError] = useState(false) 
@@ -28,12 +34,14 @@ const NewPost = () => {
     event.preventDefault()
 
     const config = {
-      method: 'post',
-      url: '/api/art/',
+      method: 'put',
+      url: `/api/art/${id}`,
       headers: {
         Authorization: `Bearer ${getToken()}`,
       },
-      data,
+      data: {
+        image: data.image, caption: data.caption, location: data.location,
+      }
     }
 
     try {
@@ -81,4 +89,4 @@ const NewPost = () => {
   )
 }
 
-export default NewPost
+export default EditPost

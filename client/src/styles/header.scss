@@ -1,0 +1,12 @@
+@import "colors";
+
+.header-div {
+  display: flex;
+  flex-direction: row;
+  h1 {
+    font-family: 'Old Standard TT', serif;
+    font-size: 6em;
+    color: $yolk-ochre;
+    margin: 30px 60px;
+  }
+}

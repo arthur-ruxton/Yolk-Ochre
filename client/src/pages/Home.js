@@ -34,7 +34,7 @@ const Home = () => {
   
 
   return (
-    <div>
+    <div className="artlist-container">
       <ul className="art-list">
         {followingArtList.map((m) => (
           <li key={m.id}>

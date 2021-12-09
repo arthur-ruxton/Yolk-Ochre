@@ -1,0 +1,31 @@
+@import 'colors';
+
+.artlist-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  .art-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 10px;
+    li {
+      display: flex;
+      justify-content: center;
+      margin: 10px;
+      .art-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 500px;
+        height: 700px;
+        .card-body {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}

@@ -11,7 +11,7 @@ const Explore = () => {
 
 
   return (
-    <div>
+    <div className="artlist-container">
       <ul className="art-list">
         {artList.map((m) => (
           <li key={m.id}>
