@@ -3,11 +3,13 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { getToken } from '../helpers/auth'
 import Card from 'react-bootstrap/Card'
-//import Button from 'react-bootstrap/Button'
+// import Button from 'react-bootstrap/Button'
 import { Star, PersonPlusFill } from 'react-bootstrap-icons'
-
+import UsernameList from '../components/UsernameList'
+import Accordion from 'react-bootstrap/Accordion'
 
 const OtherUserProfile = () => {
+  
   const [username, setUsername] = useState()
   const [fname, setFname] = useState()
   const [lname, setLname] = useState()
@@ -16,6 +18,8 @@ const OtherUserProfile = () => {
   const [following, setFollowing] = useState([])
   const [followers, setFollowers] = useState([])
   const [favourites, setFavourites] = useState([])
+  const [favouritedBy, setFavouritedBy] = useState([])
+  // const [id, setId] = useState([])
   // const [email, setEmail] = useState()
   // const [website, setWebsite] = useState()
 
@@ -33,6 +37,8 @@ const OtherUserProfile = () => {
       setFollowing(data.following)
       setFollowers(data.followers)
       setFavourites(data.favourites)
+      setFavouritedBy(data.favouritedBy)
+      // setData(data.id)
       // setEmail(data.email)
       // setWebsite(data.website)
     } catch (error) {
@@ -78,6 +84,7 @@ const OtherUserProfile = () => {
 
   // const followingIds = following.map(user => user.id)
   // const followersIds = followers.map(user => user.id)
+  // console.log('id list', followersIds)
   // const favouritesIds = favourites.map(user => user.id)
   // const favouritedByIds = favouritedBy.map(user => user.id)
 
@@ -102,9 +109,40 @@ const OtherUserProfile = () => {
             </Card.Text>
           </Card.Header>
           <Card.Body className="card-body">
-            <Card.Text>Followers {followers.length}</Card.Text>
-            <Card.Text>Following {following.length}</Card.Text>
-            <Card.Text>Favourites {favourites.length}</Card.Text>
+            <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Followers {followers.length}</Accordion.Header>
+                <Accordion.Body>
+                  {followers.map((f) => (
+                    <UsernameList {...f} key={f.id} />
+                  ))}
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="1">
+                <Accordion.Header>Following {following.length}</Accordion.Header>
+                <Accordion.Body>
+                  {following.map((f) => (
+                    <UsernameList {...f} key={f.id} />
+                  ))}
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="2">
+                <Accordion.Header>Favourites {favourites.length}</Accordion.Header>
+                <Accordion.Body>
+                  {favourites.map((f) => (
+                    <UsernameList {...f} key={f.id} />
+                  ))}
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="3">
+                <Accordion.Header>Favourite of {favouritedBy.length}</Accordion.Header>
+                <Accordion.Body>
+                  {favouritedBy.map((f) => (
+                    <UsernameList {...f} key={f.id} />
+                  ))}
+                </Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
           </Card.Body>
           <Card.Footer className="profile-footer">
             <PersonPlusFill onClick={handleFollow}/> <Star onClick={handleFavourite}/>
