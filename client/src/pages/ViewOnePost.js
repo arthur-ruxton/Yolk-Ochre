@@ -5,7 +5,8 @@ import { useParams, Link } from 'react-router-dom' //Link
 // import { fetchOneArtwork } from '../helpers/api'
 import { getToken, getCurrentUserId } from '../helpers/auth'
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
+//import Button from 'react-bootstrap/Button'
+import { Check2Circle } from 'react-bootstrap-icons'
 
 const ViewOnePost = () => { // <-- this works
   const [artId, setArtId] = useState()
@@ -62,7 +63,7 @@ const ViewOnePost = () => { // <-- this works
     <Card className="art-card" style={{ width: '35rem' }}>
       <Card.Img src={artImage} alt={artCaption} variant="top" />
       <Card.Body>
-        <Button onClick={handleLike}>Heart</Button><Card.Text>{artLikes.length}</Card.Text>
+        <Card.Text><Check2Circle onClick={handleLike} /> {artLikes.length}</Card.Text>
         <Card.Title className="card-username">
           {
             artOwner.id === personalId ?

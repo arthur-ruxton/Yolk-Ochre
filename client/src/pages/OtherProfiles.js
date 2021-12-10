@@ -3,7 +3,9 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { getToken } from '../helpers/auth'
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
+//import Button from 'react-bootstrap/Button'
+import { Star, PersonPlusFill } from 'react-bootstrap-icons'
+
 
 const OtherUserProfile = () => {
   const [username, setUsername] = useState()
@@ -14,7 +16,6 @@ const OtherUserProfile = () => {
   const [following, setFollowing] = useState([])
   const [followers, setFollowers] = useState([])
   const [favourites, setFavourites] = useState([])
-  const [favouritedBy, setFavouritedBy] = useState([])
   // const [email, setEmail] = useState()
   // const [website, setWebsite] = useState()
 
@@ -32,7 +33,6 @@ const OtherUserProfile = () => {
       setFollowing(data.following)
       setFollowers(data.followers)
       setFavourites(data.favourites)
-      setFavouritedBy(data.favouritedBy)
       // setEmail(data.email)
       // setWebsite(data.website)
     } catch (error) {
@@ -93,19 +93,22 @@ const OtherUserProfile = () => {
           </Card.ImgOverlay>
         </Card>
         <Card style={{ width: '35rem' }}>
-          <Card.Body className="card-body">
+          <Card.Header>
+            <Card.Title>
+              {fname} {lname} 
+            </Card.Title>
             <Card.Text className="bio">
-              {fname} {lname}: {bio}
+              {bio}
             </Card.Text>
-            <Button onClick={handleFollow}>Heart</Button><Card.Text>Followers: {followers.length}</Card.Text>
-            <Card.Text>
-              following: {following.length}
-            </Card.Text>
-            <Card.Text>
-              favourites: {favourites.length}
-            </Card.Text>
-            <Button onClick={handleFavourite}>Heart</Button><Card.Text>Favourited by: {favouritedBy.length}</Card.Text>
+          </Card.Header>
+          <Card.Body className="card-body">
+            <Card.Text>Followers {followers.length}</Card.Text>
+            <Card.Text>Following {following.length}</Card.Text>
+            <Card.Text>Favourites {favourites.length}</Card.Text>
           </Card.Body>
+          <Card.Footer className="profile-footer">
+            <PersonPlusFill onClick={handleFollow}/> <Star onClick={handleFavourite}/>
+          </Card.Footer>
         </Card>
       </div>
     </div>

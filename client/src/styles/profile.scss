@@ -6,5 +6,14 @@
   justify-content: space-evenly;
   padding: 1%;
   width: 100%;
+  .list-group-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    .listgroup-text {
+      margin: auto;
+    }
+  }
 }
 

@@ -1,8 +1,9 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
+//import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
 import { getCurrentUserId } from '../helpers/auth'
+import { Search, Check2Circle } from 'react-bootstrap-icons'
 
 const ArtCard = ({
   id,
@@ -23,7 +24,7 @@ const ArtCard = ({
       </Card>
       <Card className="art-card" style={{ width: '30rem' }} >
         <Card.Body>
-          <Card.Text className="likes">likes: {likes.length}</Card.Text>
+          <Card.Text className="likes"><Check2Circle /> {likes.length}</Card.Text>
           <Card.Title className="card-username">
             {
               owner.id === personalId ?
@@ -35,7 +36,7 @@ const ArtCard = ({
           <Card.Text className="location">{location}</Card.Text>
           <Card.Text className="comments">{comments}</Card.Text>
           <Card.Footer>
-            <Button className="button"><Link className="link" to={`/view-one-post/${id}`}>View</Link></Button>
+            <Link className="link" to={`/view-one-post/${id}`}><Search /></Link>
           </Card.Footer>
         </Card.Body>
       </Card> 

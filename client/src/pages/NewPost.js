@@ -58,26 +58,24 @@ const NewPost = () => {
   const formInputProps = { data, errorInfo, handleFormChange }
 
   return (
-    <div>
-      <section className="form-section">
-        <div className="form-box">
-          <h1>Post</h1>
-          <Form onSubmit={handleSubmit} className="form">
-            <PostArtForm formInputProps={formInputProps} />
-            <div>
-              <Form.Control id="submit-button" type="submit" value="Post" />
+    <section className="form-section">
+      <div className="form-box">
+        <h1>Post</h1>
+        <Form onSubmit={handleSubmit} className="form">
+          <PostArtForm formInputProps={formInputProps} />
+          <div>
+            <Form.Control id="submit-button" type="submit" value="Post" />
+          </div>
+          {isError ? (
+            <div className="error">
+              <p>Error. Please try again</p>
             </div>
-            {isError ? (
-              <div className="error">
-                <p>Error. Please try again</p>
-              </div>
-            ) : (
-              <></>
-            )}
-          </Form>
-        </div>
-      </section>
-    </div>
+          ) : (
+            <></>
+          )}
+        </Form>
+      </div>
+    </section>
   )
 }
 

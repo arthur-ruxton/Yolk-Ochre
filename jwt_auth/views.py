@@ -16,7 +16,7 @@ from django.urls import reverse
 class RegisterView(APIView):
     # POST REGISTER INFO
     def post(self, request):
-        serializer = UserSerializer(data=request.data)
+        serializer = PopulatedUserSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response({'message': 'Registration successful'})

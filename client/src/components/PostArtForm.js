@@ -19,6 +19,7 @@ const PostArtForm = ({ formInputProps }) => {
         placeholder='Caption'
         onChange={handleFormChange}
         {...formInputProps}
+        as="textarea" rows={3}
       />
       <Form.Control
         name='location'

@@ -5,7 +5,6 @@ import { fetchAllArt } from '../helpers/api'
 import ArtCard from '../components/ArtCard'
 import Card from 'react-bootstrap/Card'
 
-
 const PersonalProfile = () => {
   const [artList, setArtList] = useState([])
 
@@ -17,7 +16,6 @@ const PersonalProfile = () => {
   const [following, setFollowing] = useState([])
   const [followers, setFollowers] = useState([])
   const [favourites, setFavourites] = useState([])
-  const [favouritedBy, setFavouritedBy] = useState([])
   // const [email, setEmail] = useState()
   // const [website, setWebsite] = useState()
 
@@ -38,7 +36,6 @@ const PersonalProfile = () => {
       setFollowing(data.following)
       setFollowers(data.followers)
       setFavourites(data.favourites)
-      setFavouritedBy(data.favouritedBy)
       // setEmail(data.email)
       // setWebsite(data.website)
     }
@@ -64,27 +61,25 @@ const PersonalProfile = () => {
       <div className="user-details">
         <Card style={{ width: '35rem' }}>
           <Card.Img className="pp" variant="top" src={`${pp}`} />
-        </Card>
-        <Card style={{ width: '35rem' }}>
-          <Card.Body className="card-body">
+          <Card.ImgOverlay>
             <Card.Title className='card-title'>
               {username}
             </Card.Title>
+          </Card.ImgOverlay>
+        </Card>
+        <Card style={{ width: '35rem' }}>
+          <Card.Header>
+            <Card.Title>
+              {fname} {lname} 
+            </Card.Title>
             <Card.Text className="bio">
-              {fname} {lname}: {bio}
+              {bio}
             </Card.Text>
-            <Card.Text>
-              followers: {followers.length}
-            </Card.Text>
-            <Card.Text>
-              following: {following.length}
-            </Card.Text>
-            <Card.Text>
-              favourites: {favourites.length}
-            </Card.Text>
-            <Card.Text>
-              favourited by: {favouritedBy.length}
-            </Card.Text>
+          </Card.Header>
+          <Card.Body className="card-body">
+            <Card.Text>Followers {followers.length}</Card.Text>
+            <Card.Text>Following {following.length}</Card.Text>
+            <Card.Text>Favourites {favourites.length}</Card.Text>
           </Card.Body>
         </Card>
       </div>
