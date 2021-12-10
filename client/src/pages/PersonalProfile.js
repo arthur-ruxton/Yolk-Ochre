@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { getCurrentUserId } from '../helpers/auth'
 import { fetchAllArt } from '../helpers/api'
-import ArtCard from '../components/ArtCard'
 import Card from 'react-bootstrap/Card'
 import UsernameList from '../components/UsernameList'
 import Accordion from 'react-bootstrap/Accordion'
@@ -83,7 +82,9 @@ const PersonalProfile = () => {
           <Card.Body className="card-body">
             <Accordion>
               <Accordion.Item eventKey="0">
-                <Accordion.Header>Followers {followers.length}</Accordion.Header>
+                <Accordion.Header>
+                  Followers {followers.length}
+                </Accordion.Header>
                 <Accordion.Body>
                   {followers.map((f) => (
                     <UsernameList {...f} key={f.id} />
@@ -91,7 +92,9 @@ const PersonalProfile = () => {
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="1">
-                <Accordion.Header>Following {following.length}</Accordion.Header>
+                <Accordion.Header>
+                  Following {following.length}
+                </Accordion.Header>
                 <Accordion.Body>
                   {following.map((f) => (
                     <UsernameList {...f} key={f.id} />
@@ -99,7 +102,9 @@ const PersonalProfile = () => {
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="2">
-                <Accordion.Header>Favourites {favourites.length}</Accordion.Header>
+                <Accordion.Header>
+                  Favourites {favourites.length}
+                </Accordion.Header>
                 <Accordion.Body>
                   {favourites.map((f) => (
                     <UsernameList {...f} key={f.id} />
@@ -107,7 +112,9 @@ const PersonalProfile = () => {
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="3">
-                <Accordion.Header>Favourite of {favouritedBy.length}</Accordion.Header>
+                <Accordion.Header>
+                  Favourite of {favouritedBy.length}
+                </Accordion.Header>
                 <Accordion.Body>
                   {favouritedBy.map((f) => (
                     <UsernameList {...f} key={f.id} />
@@ -118,11 +125,6 @@ const PersonalProfile = () => {
           </Card.Body>
         </Card>
       </div>
-      <div className='art-list'>
-        {userArtList.map((m) => (
-          <ArtCard {...m} key={m.id}/>
-        ))}
-      </div> 
     </div>
   )
 }

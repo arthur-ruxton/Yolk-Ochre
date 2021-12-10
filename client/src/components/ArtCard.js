@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Card from 'react-bootstrap/Card'
 //import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
 import { getCurrentUserId } from '../helpers/auth'
 import { Search, Check2Circle } from 'react-bootstrap-icons'
+import Modal from 'react-bootstrap/Modal'
+
+import UsernameList from './UsernameList'
 
 const ArtCard = ({
   id,
@@ -15,6 +18,10 @@ const ArtCard = ({
   comments,
 }) => {
 
+  const [show, setShow] = useState(false)
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
+
   const personalId = getCurrentUserId() 
   
   return (
@@ -24,7 +31,17 @@ const ArtCard = ({
       </Card>
       <Card className="art-card" style={{ width: '30rem' }} >
         <Card.Body>
-          <Card.Text className="likes"><Check2Circle /> {likes.length}</Card.Text>
+          <Card.Text className="likes" onClick={handleShow}><Check2Circle /> {likes.length}</Card.Text>
+          <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title><Check2Circle /></Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              {likes.map((i) => (
+                <UsernameList {...i} key={i}/>
+              ))}
+            </Modal.Body>
+          </Modal>
           <Card.Title className="card-username">
             {
               owner.id === personalId ?
