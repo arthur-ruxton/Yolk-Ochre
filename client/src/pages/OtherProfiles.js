@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { getToken } from '../helpers/auth'
-import UserArtList from './UserArtList'
 
 import { Star, PersonPlusFill } from 'react-bootstrap-icons'
 import Card from 'react-bootstrap/Card'
@@ -158,7 +157,6 @@ const OtherUserProfile = () => {
           </Card.Footer>
         </Card>
       </div>
-      <UserArtList {...idObj}/>
     </div>
   )
 }

@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card'
 //import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
 import { getCurrentUserId } from '../helpers/auth'
-import { Search, Check2Circle } from 'react-bootstrap-icons'
+import { Search, Check2Circle, GeoAlt } from 'react-bootstrap-icons'
 import Modal from 'react-bootstrap/Modal'
 
 import UsernameList from './UsernameList'
@@ -50,7 +50,7 @@ const ArtCard = ({
             }
           </Card.Title>
           <Card.Text className="caption">{caption}</Card.Text>
-          <Card.Text className="location">{location}</Card.Text>
+          <Card.Text className="location"><GeoAlt/> {location}</Card.Text>
           <Card.Text className="comments">{comments}</Card.Text>
           <Card.Footer>
             <Link className="link" to={`/view-one-post/${id}`}><Search /></Link>

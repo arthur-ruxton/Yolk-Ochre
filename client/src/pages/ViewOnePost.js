@@ -6,7 +6,7 @@ import { useParams, Link } from 'react-router-dom' //Link
 import { getToken, getCurrentUserId } from '../helpers/auth'
 import Card from 'react-bootstrap/Card'
 //import Button from 'react-bootstrap/Button'
-import { Check2Circle } from 'react-bootstrap-icons'
+import { Check2Circle, GeoAlt } from 'react-bootstrap-icons'
 
 const ViewOnePost = () => { // <-- this works
   const [artId, setArtId] = useState()
@@ -60,21 +60,27 @@ const ViewOnePost = () => { // <-- this works
   const personalId = getCurrentUserId()
 
   return (
-    <Card className="art-card" style={{ width: '35rem' }}>
-      <Card.Img src={artImage} alt={artCaption} variant="top" />
-      <Card.Body>
-        <Card.Text><Check2Circle onClick={handleLike} /> {artLikes.length}</Card.Text>
-        <Card.Title className="card-username">
-          {
-            artOwner.id === personalId ?
-              <Link to={'/personalprofile'}>{artOwner.username}</Link >
-              : <Link to={`/otherprofiles/${artOwner.id}`}>{artOwner.username}</Link >
-          }
-        </Card.Title>
-        <Card.Text className="caption">{artCaption}</Card.Text>
-        <Card.Text className="location">{artLocation}</Card.Text>
-      </Card.Body>
-    </Card> 
+    <div className='view-one-div'>
+      <Card style={{ width: '45rem' }}>
+        <Card.Img src={artImage} alt={artCaption} variant="top" />
+      </Card>
+      <div className="art-card">
+        <Card>
+          <Card.Body style={{ width: '25rem' }}>
+            <Card.Title className="card-owner">
+              {
+                artOwner.id === personalId ?
+                  <Link to={'/personalprofile'}>{artOwner.username}</Link >
+                  : <Link to={`/otherprofiles/${artOwner.id}`}>{artOwner.username}</Link >
+              }
+            </Card.Title>
+            <Card.Text className="caption">{artCaption}</Card.Text>
+            <Card.Text className="location"><GeoAlt/> {artLocation}</Card.Text>
+            <Card.Text className="like-button"><Check2Circle onClick={handleLike} /> {artLikes.length}</Card.Text>
+          </Card.Body>
+        </Card> 
+      </div>
+    </div>
   )
 }
 

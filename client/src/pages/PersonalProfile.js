@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { getCurrentUserId } from '../helpers/auth'
 import { fetchAllArt } from '../helpers/api'
+import ArtCard from '../components/ArtCard'
 import Card from 'react-bootstrap/Card'
 import UsernameList from '../components/UsernameList'
 import Accordion from 'react-bootstrap/Accordion'
@@ -123,8 +124,15 @@ const PersonalProfile = () => {
               </Accordion.Item>
             </Accordion>
           </Card.Body>
-        </Card>
+        </Card>          
       </div>
+      <ul className="art-list">
+        {userArtList.map((m) => (
+          <li key={m.id}>
+            <ArtCard {...m} />
+          </li>
+        ))}
+      </ul> 
     </div>
   )
 }
