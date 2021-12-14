@@ -1,14 +1,20 @@
 import React from 'react'
 import { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
-import { useParams, Link } from 'react-router-dom' //Link
-// import { fetchOneArtwork } from '../helpers/api'
+import { useParams, Link, useNavigate } from 'react-router-dom' //Link
+import { deleteArt } from '../helpers/api'
 import { getToken, getCurrentUserId } from '../helpers/auth'
+import EditArt from '../components/EditArt'
 import Card from 'react-bootstrap/Card'
-//import Button from 'react-bootstrap/Button'
-import { Check2Circle, GeoAlt } from 'react-bootstrap-icons'
+import Modal from 'react-bootstrap/Modal'
+import { Check2Circle, GeoAlt, Trash, Pencil } from 'react-bootstrap-icons'
+
 
 const ViewOnePost = () => { // <-- this works
+  const [show, setShow] = useState(false)
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
+
   const [artId, setArtId] = useState()
   const [artOwner, setArtOwner] = useState({})
   const [artImage, setArtImage] = useState()
@@ -40,7 +46,6 @@ const ViewOnePost = () => { // <-- this works
   }, [getArtwork]) 
 
   const handleLike = async () => {
-
     const config = {
       method: 'put',
       url: `/api/art/likeToggle/${artId}/`,
@@ -48,7 +53,6 @@ const ViewOnePost = () => { // <-- this works
         Authorization: `Bearer ${getToken()}`,
       },
     }
-
     try {
       await axios(config)
       await getArtwork()
@@ -58,6 +62,19 @@ const ViewOnePost = () => { // <-- this works
   }
 
   const personalId = getCurrentUserId()
+
+  const navigate = useNavigate()
+  const handleDeleteClick = () => {
+    deleteArt(id)
+      .then((response) => {
+        console.log(response)
+        navigate('/art')
+      })
+      .catch((err) => {
+        console.log(err)
+        alert(err)
+      })
+  }
 
   return (
     <div className='view-one-div'>
@@ -78,6 +95,22 @@ const ViewOnePost = () => { // <-- this works
             <Card.Text className="location"><GeoAlt/> {artLocation}</Card.Text>
             <Card.Text className="like-button"><Check2Circle onClick={handleLike} /> {artLikes.length}</Card.Text>
           </Card.Body>
+          {
+            artOwner.id === personalId ?
+              <Card.Footer className="card-footer">
+                <Card.Text className="edit-button" onClick={handleShow}><Pencil/></Card.Text>
+                <Modal show={show} onHide={handleClose}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>Edit Artwork <Pencil /></Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                    <EditArt/>
+                  </Modal.Body>
+                </Modal>
+                <Card.Text className="delete-button" onClick={handleDeleteClick}><Trash/></Card.Text>
+              </Card.Footer >
+              : <></>
+          }
         </Card> 
       </div>
     </div>

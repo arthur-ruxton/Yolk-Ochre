@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import React, { useState } from 'react' // useEffect
+import { useNavigate, useParams } from 'react-router-dom' // useParams
 import axios from 'axios'
 import Form from 'react-bootstrap/Form'
 import PostArtForm from '../components/PostArtForm'
@@ -13,10 +13,6 @@ const EditPost = () => {
   })
 
   const { id } = useParams()
-
-  useEffect(() => {
-    fetchOne(id).then(setMovie)
-  }, [id])
 
   const [errorInfo, setErrorInfo] = useState({})
   const [isError, setIsError] = useState(false) 
@@ -35,20 +31,20 @@ const EditPost = () => {
 
     const config = {
       method: 'put',
-      url: `/api/art/${id}`,
+      url: `/api/art/${id}/`,
       headers: {
         Authorization: `Bearer ${getToken()}`,
       },
       data: {
         image: data.image, caption: data.caption, location: data.location,
-      }
+      },
     }
 
     try {
       const { data } = await axios(config).catch(handleError)
       console.log(data)
       setIsError(false)
-      navigate(`/view-one-post/${data.id}/`)
+      navigate(`/view-one-post/${id}/`)
     } catch (err) {
       console.log(err)
     }
