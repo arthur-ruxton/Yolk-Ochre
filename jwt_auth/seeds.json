@@ -1,0 +1,253 @@
+[
+{
+  "model": "jwt_auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$K1Q1qwgJr3fB2sEDX65I3I$JFWWeJBTpmAj/bvcabLC7ObiITW/37+R3aVF8/DZqcg=",
+    "last_login": "2021-12-09T11:26:58.513Z",
+    "is_superuser": true,
+    "username": "admin",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2021-12-08T16:26:51Z",
+    "email": "admin@admin.com",
+    "first_name": "ad",
+    "last_name": "min",
+    "bio": "Bio",
+    "profile_image": "admin",
+    "website": "",
+    "groups": [],
+    "user_permissions": [],
+    "following": [],
+    "favourites": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$LpGc11WDN3ibiV2Xa8iwwW$lmTQhjEbsU25j6mC2azOBnDaXZKKEfpv3rdayOorSWs=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "G.Klimt",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-12-09T11:00:55Z",
+    "email": "klimt@yolk.com",
+    "first_name": "Gustav",
+    "last_name": "Klimt",
+    "bio": "Austrian painter, founder of the school of painting known as the Vienna Sezession.",
+    "profile_image": "https://i.ibb.co/C9x7dTS/Gustav-Klimt.jpg",
+    "website": "",
+    "groups": [],
+    "user_permissions": [],
+    "following": [
+      8
+    ],
+    "favourites": [
+      8
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$1LeGBTPIM2NVNiJ07PkLZ8$vs3hDAId1tiJhtpyXTb4x437mjxsUksIsdL5UZZyHJ0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "B.Hepworth",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-12-09T11:39:10Z",
+    "email": "hepworth@yolk.com",
+    "first_name": "Barbara",
+    "last_name": "Hepworth",
+    "bio": "English artist and sculptor. Her work exemplifies Modernism and in particular modern sculpture.",
+    "profile_image": "https://i.ibb.co/ZG6GxDs/343391.jpg",
+    "website": "https://barbarahepworth.org.uk/",
+    "groups": [],
+    "user_permissions": [],
+    "following": [
+      10,
+      4,
+      7,
+      8,
+      9
+    ],
+    "favourites": [
+      7,
+      8,
+      9
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$AAJAMwG52MbthDyLCus8mB$PKlXm3e04Hm9NQyZJBJEgnsugyTw0lsTeWV2DyOhM6I=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "A.Martin",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-12-09T11:47:55Z",
+    "email": "martin@yolk.com",
+    "first_name": "Agnes",
+    "last_name": "Martin",
+    "bio": "Like many artists in the 1950s and 1960s, she was influenced by Zen Buddhism and Taoism that contributed to her interest in nature.",
+    "profile_image": "https://i.ibb.co/zncx5f8/d31a8c5aa41e4a35859f477fbc786fa8.jpg",
+    "website": "",
+    "groups": [],
+    "user_permissions": [],
+    "following": [
+      8
+    ],
+    "favourites": [
+      8
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$U34SjjJWTZ2lWOcBT10eS2$nCtaKI5WfL5KHA5DFNlBrTTPYXT9xqS0ti72Bs2e2tM=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "K.T-Yeul",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-12-09T11:53:49Z",
+    "email": "yeul@yolk.com",
+    "first_name": "Kim",
+    "last_name": "Tschang-Yeul",
+    "bio": "One of the greatest Korean painters. Born in 1929 in the north of the then unified Korea, he migrated to the south to escape the communist regime.",
+    "profile_image": "https://i.ibb.co/28dFWMt/Kim-Tschangyeul-f-Nco-Y3-Q.jpg",
+    "website": "",
+    "groups": [],
+    "user_permissions": [],
+    "following": [
+      7
+    ],
+    "favourites": [
+      4
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 9,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$3HX93j1F2yeztBbF0A20sx$j+uxvtUVuWyIhxoQiSQQ9zqetwNXc2498OKEvECoZtY=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "S.H.Raza",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-12-09T12:21:28Z",
+    "email": "sh.raza@yolk.com",
+    "first_name": "Sayed",
+    "last_name": "Raza",
+    "bio": "Bio",
+    "profile_image": "https://i.ibb.co/LCtybd1/raza-pic.webp",
+    "website": "",
+    "groups": [],
+    "user_permissions": [],
+    "following": [
+      8
+    ],
+    "favourites": [
+      4
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 10,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$d7IdWAGy0tf6QFT40sdZ0I$XhgyuOXdcht6rLCORx8Y3UvLvCI+CTGb3I/JiClAdX4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "O.Jones",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-12-10T00:14:48Z",
+    "email": "o.jones@yolk.com",
+    "first_name": "Otis",
+    "last_name": "Jones",
+    "bio": "Devoid of pictorial motifs, narratives and at times even color, the work of Texas-based artist Otis Jones is muted yet intensely physical, and stubbornly original.",
+    "profile_image": "https://i.ibb.co/KxbmTK5/otis-jones-portrait-small.jpg",
+    "website": "https://www.otisjones.net/",
+    "groups": [],
+    "user_permissions": [],
+    "following": [
+      4,
+      9,
+      6,
+      8
+    ],
+    "favourites": [
+      4,
+      9,
+      6,
+      8
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 11,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$1pQJ70iIC30dOr243nO4EZ$1SDsH3reSyKnJmrCAhcqXcowjzfHXNacfcplTLyq1PQ=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "J.M.W.Turner",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-12-10T00:42:33Z",
+    "email": "jmw.turner@yolk.com",
+    "first_name": "William",
+    "last_name": "Turner",
+    "bio": "Son of a Barber, Father of Impressionism",
+    "profile_image": "https://i.ibb.co/PtFGWkp/N00458-10.jpg",
+    "website": "",
+    "groups": [],
+    "user_permissions": [],
+    "following": [
+      4
+    ],
+    "favourites": [
+      8
+    ]
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 12,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$bK5OYDqMajzxqecDzCJASH$gUJz/C8Hfb3HCaVMC5xPbnUY3ugapkTnHgO6JgUiETs=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "E.Munch",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-12-10T00:56:15Z",
+    "email": "e.munch@yolk.com",
+    "first_name": "Edvard",
+    "last_name": "Munch",
+    "bio": "Edvard Munch was a prolific yet perpetually troubled artist preoccupied with matters of human mortality such as chronic illness, sexual liberation, and religious aspiration.",
+    "profile_image": "https://i.ibb.co/t8dTyP6/edvardmunchselvportrettgrafikk-crop.jpg",
+    "website": "",
+    "groups": [],
+    "user_permissions": [],
+    "following": [
+      11
+    ],
+    "favourites": [
+      11
+    ]
+  }
+}
+]

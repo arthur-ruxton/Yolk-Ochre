@@ -1,0 +1,244 @@
+[
+{
+  "model": "art.art",
+  "pk": 2,
+  "fields": {
+    "image": "https://i.ibb.co/71pGw18/yolk-Ochre-Two.jpg",
+    "caption": "Egg Tempera - Yellow Ochre",
+    "location": "-",
+    "owner": 1,
+    "likes": [
+      10
+    ]
+  }
+},
+{
+  "model": "art.art",
+  "pk": 10,
+  "fields": {
+    "image": "https://i.ibb.co/QmpxSw4/yolkOne.jpg",
+    "caption": "Duck Egg",
+    "location": "Harris",
+    "owner": 1,
+    "likes": [
+      10,
+      9
+    ]
+  }
+},
+{
+  "model": "art.art",
+  "pk": 11,
+  "fields": {
+    "image": "https://i.ibb.co/TgRV6hy/yolk-Ochre-Three.jpg",
+    "caption": "Making paint - Egg Tempera",
+    "location": "Egypt",
+    "owner": 1,
+    "likes": [
+      10,
+      6
+    ]
+  }
+},
+{
+  "model": "art.art",
+  "pk": 12,
+  "fields": {
+    "image": "https://i.ibb.co/1qNNzrz/OchreOne.jpg",
+    "caption": "Ochre Pigment - from Iron minerals",
+    "location": "Bristol",
+    "owner": 1,
+    "likes": [
+      9
+    ]
+  }
+},
+{
+  "model": "art.art",
+  "pk": 15,
+  "fields": {
+    "image": "https://i.ibb.co/61jh4VD/2-waterdrops-1974-479.jpg",
+    "caption": "Single Water Droplet",
+    "location": "Jeju Island",
+    "owner": 8,
+    "likes": [
+      10,
+      9,
+      6
+    ]
+  }
+},
+{
+  "model": "art.art",
+  "pk": 16,
+  "fields": {
+    "image": "https://i.ibb.co/RBGXN01/Getty-Images-153049850.jpg",
+    "caption": "Influenced by girl with a pearl earring",
+    "location": "Vienna",
+    "owner": 4,
+    "likes": [
+      10,
+      8,
+      9,
+      6
+    ]
+  }
+},
+{
+  "model": "art.art",
+  "pk": 17,
+  "fields": {
+    "image": "https://i.ibb.co/gRHykGz/art-books-41-agnes-martin-desert-rain-contextual.jpg",
+    "caption": "Meditation in painting",
+    "location": "New Mexico",
+    "owner": 7,
+    "likes": [
+      10,
+      9,
+      6
+    ]
+  }
+},
+{
+  "model": "art.art",
+  "pk": 19,
+  "fields": {
+    "image": "https://i.ibb.co/Wx2PHZS/T00953-10.jpg",
+    "caption": "Abstract landscape / Egg form",
+    "location": "St Ives, Cornwall",
+    "owner": 6,
+    "likes": [
+      10,
+      4
+    ]
+  }
+},
+{
+  "model": "art.art",
+  "pk": 21,
+  "fields": {
+    "image": "https://i.ibb.co/9npbdW8/shanti-20ee829a-a4dd-4eb7-be6f-e922df81b323.jpg",
+    "caption": "Shanti",
+    "location": "Madhya Pradesh",
+    "owner": 9,
+    "likes": [
+      7
+    ]
+  }
+},
+{
+  "model": "art.art",
+  "pk": 22,
+  "fields": {
+    "image": "https://i.ibb.co/p2mfYkf/Otis-Jones-2018-Natural-with-One-Gray-Circle.jpg",
+    "caption": "One circle",
+    "location": "Texas, US",
+    "owner": 10,
+    "likes": [
+      10,
+      6
+    ]
+  }
+},
+{
+  "model": "art.art",
+  "pk": 23,
+  "fields": {
+    "image": "https://i.ibb.co/hYVW6Bv/Biog-25.jpg",
+    "caption": "w.i.p",
+    "location": "S",
+    "owner": 6,
+    "likes": []
+  }
+},
+{
+  "model": "art.art",
+  "pk": 24,
+  "fields": {
+    "image": "https://i.ibb.co/mTfrgXH/exhi.jpg",
+    "caption": "Mother and Child",
+    "location": "St Ives, Cornwall",
+    "owner": 6,
+    "likes": []
+  }
+},
+{
+  "model": "art.art",
+  "pk": 25,
+  "fields": {
+    "image": "https://i.ibb.co/PGCSFzs/Otis-Jones-2018-Red-with-Two-Black-and-Two-Blue-Circles-Right.jpg",
+    "caption": "Red with two black circles and two blue circles",
+    "location": "New York",
+    "owner": 10,
+    "likes": [
+      8
+    ]
+  }
+},
+{
+  "model": "art.art",
+  "pk": 26,
+  "fields": {
+    "image": "https://i.ibb.co/QcW3LCH/Otis-Jones-2018-Pink-with-Tan-and-Black-Circles-Left.jpg",
+    "caption": "Pink with tan and black circles",
+    "location": "Berlin",
+    "owner": 10,
+    "likes": [
+      7,
+      6
+    ]
+  }
+},
+{
+  "model": "art.art",
+  "pk": 27,
+  "fields": {
+    "image": "https://i.ibb.co/9q8KXpG/Edvard-Munch-Girl-at-the-Beach.jpg",
+    "caption": "Girl at the beach",
+    "location": "Norway",
+    "owner": 12,
+    "likes": [
+      4
+    ]
+  }
+},
+{
+  "model": "art.art",
+  "pk": 28,
+  "fields": {
+    "image": "https://i.ibb.co/NTzdpSP/default.jpg",
+    "caption": "Two Women on the shore",
+    "location": "Norway",
+    "owner": 12,
+    "likes": [
+      11,
+      6
+    ]
+  }
+},
+{
+  "model": "art.art",
+  "pk": 29,
+  "fields": {
+    "image": "https://i.ibb.co/r7V4vh1/20201025000247-0.jpg\" alt=\"20201025000247-0",
+    "caption": "Water drops on news paper",
+    "location": "Paris",
+    "owner": 8,
+    "likes": [
+      10,
+      6
+    ]
+  }
+},
+{
+  "model": "art.art",
+  "pk": 30,
+  "fields": {
+    "image": "https://i.ibb.co/Bfp4hBq/im-341773-width-860-height-1183.jpg",
+    "caption": "Two Forms",
+    "location": "St Ives, Cornwall",
+    "owner": 6,
+    "likes": []
+  }
+}
+]
