@@ -27,7 +27,7 @@ const ViewOnePost = () => { // <-- this works
   const getArtwork = useCallback(async () => {
     try {
       //fetchOneArtwork(id).then(setArtwork)
-      const { data } = await axios.get(`/api/art/${id}`)
+      const { data } = await axios.get(`/api/art/${id}/`)
       setArtId(data.id)
       setArtOwner(data.owner)
       setArtImage(data.image)

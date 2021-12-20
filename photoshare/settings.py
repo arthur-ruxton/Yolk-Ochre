@@ -1,3 +1,6 @@
+import os ## <-- added for deployment
+import django_on_heroku # <-- added for deployment
+
 """
 Django settings for photoshare project.
 
@@ -56,7 +59,9 @@ ROOT_URLCONF = 'photoshare.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'client')
+                 ]  #Look, we have added the root folder of frontend here
+        ,
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -139,3 +144,14 @@ REST_FRAMEWORK = { # <------------ hooking up authentication
         # 'rest_framework.authentication.SessionAuthentication',
     ],
 }
+
+## ---------------------- added for deployment ------------------------------ ##
+ROOT_URLCONF = 'photoshare.urls' #check if you have this already, if not add it in
+
+STATIC_URL = '/static/' # same with this
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'client', "build", "static"),
+)
+
+django_on_heroku.settings(locals())
