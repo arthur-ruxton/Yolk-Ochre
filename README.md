@@ -227,7 +227,7 @@ A richly featured CRUD app geared towards art lovers.
   <summary>Bugs: There is only one piece of functionality that does not work as intended.</summary>
   <ul>
     <li>
-      I could not make the list of artworks by a particular user visible on ‘other-users-profile’ and I am still unsure why - I will look again at this problem s         soon.
+      I could not make the list of artworks by a particular user visible on ‘other-users-profile’ and I am still unsure why - I will look again at this problem         soon.
     </li>
   </ul>
 </details>
