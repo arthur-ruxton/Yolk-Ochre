@@ -3,7 +3,7 @@
 A richly featured CRUD app geared towards art lovers.
 
 <details>
-  <summary></summary>
+  <summary>Aim</summary>
   <ul>
     <li>On your own or in teams, build a full stack application.</li>
     <li>Use PostegreSQL, Python, Django REST framework, React.js & Node.</li>
@@ -139,6 +139,25 @@ A richly featured CRUD app geared towards art lovers.
 </details>
 
 <details>
+  <summary>Visuals</summary>
+  <p>Planning on Trello:</p>
+  <img src=https://user-images.githubusercontent.com/89402596/148811744-7560d3bc-2332-4a81-88f2-45f621b97ce3.png />
+  <p>Register user:</p>
+  <img src=https://user-images.githubusercontent.com/89402596/148812168-dbcb3101-4c3f-4e27-a742-dbf5f4f457b1.png />
+  <p>Login:</p>
+  <img src=https://user-images.githubusercontent.com/89402596/148812287-7b809613-d29e-4cde-88ae-711236dfd36e.png />
+  <p>:house: Homepage - posts by users you follow</p>
+  <img src=https://user-images.githubusercontent.com/89402596/148812538-70515d3b-33e3-4c6c-810a-3a0524e1dcf6.png />
+  <p>:globe_with_meridians: Explore - all Art on the platform</p>
+  <img src=https://user-images.githubusercontent.com/89402596/148812687-0d0d92bf-ef07-485e-bc98-5dc484d08b1c.png />
+  <p>:star: Favourites - posts by your favourite users</p>
+  <img src=https://user-images.githubusercontent.com/89402596/148812867-5dae2dad-ab06-4e39-b702-0c4465c2586a.png />
+  <p>:mag: View one artwork</p>
+  <img src=https://user-images.githubusercontent.com/89402596/148813790-8924f22a-ca91-430e-bc4f-220c482b05a9.png />
+  <p>There's more to see - visit the website!</p>
+</details>
+
+<details>
   <summary>Key learnings:</summary>
   <ul>
     <li>Entity Relationship Diagrams for visualising tabular data and relationships.</li>
@@ -212,3 +231,15 @@ A richly featured CRUD app geared towards art lovers.
     </li>
   </ul>
 </details>
+
+
+
+
+
+
+
+
+
+
+
+
