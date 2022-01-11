@@ -1,5 +1,5 @@
-# General Assembly
-# Project 4 - Yolk Ochre
+# General Assembly - Project 4
+# Yolk Ochre :egg:
 A richly featured CRUD app geared towards art lovers.
 
 <details>
