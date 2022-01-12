@@ -1,6 +1,6 @@
 # General Assembly - Project 4
-# Yolk Ochre :egg:
-A richly featured CRUD app geared towards art lovers - Solo Project
+# [Yolk Ochre](https://yolkochre.herokuapp.com/register) :egg:
+Solo Project - A richly featured CRUD app geared towards art lovers
 
 <details>
   <summary>Aim</summary>
