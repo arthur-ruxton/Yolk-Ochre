@@ -139,6 +139,20 @@ Solo Project - A richly featured CRUD app geared towards art lovers
 </details>
 
 <details>
+  <summary>Code snippets / features</summary>
+  <p>Custom user model - this includes two reciprocal many to many relationships (the table has many to many relationships with itself)</p>
+  <img src=https://user-images.githubusercontent.com/89402596/149196019-d153502f-43ee-4f90-81b8-b3e6e72b6981.png />
+  <p>Views (controllers) for following & unfollowing / favouriting & unfavouriting - I used a toggle method on this project</p>
+  <img src=https://user-images.githubusercontent.com/89402596/149196115-7e767a5f-fe28-409a-a2ea-e173f45015d6.png />
+  <p>Pages</p>
+  <img src=https://user-images.githubusercontent.com/89402596/149196808-d1ef23ec-032a-4269-9b89-bdd17e7ca34f.png />
+  <p>Components</p>
+  <img src=https://user-images.githubusercontent.com/89402596/149196869-bed80431-dcb9-4d1e-bf4e-8df42c257f59.png />
+  <p>Example of exported helper functions used for making requests</p>
+  <img src=https://user-images.githubusercontent.com/89402596/149197216-734ca3f6-aac9-4c4a-aed6-59a5eac3413b.png />
+</details>
+
+<details>
   <summary>Visuals</summary>
   <p>Planning on Trello:</p>
   <img src=https://user-images.githubusercontent.com/89402596/148811744-7560d3bc-2332-4a81-88f2-45f621b97ce3.png />
