@@ -1,6 +1,6 @@
 # General Assembly - Project 4
 # Yolk Ochre :egg:
-A richly featured CRUD app geared towards art lovers.
+A richly featured CRUD app geared towards art lovers - Solo Project
 
 <details>
   <summary>Aim</summary>
@@ -104,7 +104,7 @@ A richly featured CRUD app geared towards art lovers.
           </li>
           <li>Finally, the comment model and its urls etc. I am still yet to use this up on the front end but it works.</li>
           <li>As I built these models and controllers (views) I tested them using Insomnia.</li>
-          <li>When a feature seemed to be complete I committed my work to git and pushed it to github.</li>
+          <li>When a feature seemed to be complete I committed my work to git and pushed it to GitHub.</li>
         </ul>
       </details>
     </li>
@@ -130,7 +130,7 @@ A richly featured CRUD app geared towards art lovers.
           <li>I worked from the morning until the next morning, 5am, with very few breaks in order to deliver an MVP presentation a few hours later.</li>
           <li>I brought in React-Bootstrap-Icons to clean up the look and feel of the application, this really helps to create a finished, professional feel.</li>
           <li>
-            I worked in SASS to implement my chosen color palette drawn from the name, YolkOchre, the fonts which were inspired by a magazine cover and the                     formatting, inspired by modern art galleries. I also used this time to customise all of the bootstrapped stuff to make it my own. 
+            I worked in SASS to implement my chosen colour palette drawn from the name, YolkOchre, the fonts which were inspired by a magazine cover and the                     formatting, inspired by modern art galleries. I also used this time to customise all of the bootstrapped stuff to make it my own. 
           </li>
         </ul>
       </details>
@@ -173,9 +173,9 @@ A richly featured CRUD app geared towards art lovers.
 </details>
 
 <details>
-  <summary>Challenges:</summary>
+  <summary>Challenges & Wins</summary>
   <ul>
-    <li>understanding serializers, translating django models appropriately for sending and receiving data.</li>
+    <li>Understanding serializers, translating django models appropriately for sending and receiving data.</li>
     <li>
       Creating reciprocal many to many relationships - the User model has multiple many-to-many relationships with itself. This must be reflected in the populated       serializer. 
     </li>
@@ -184,7 +184,7 @@ A richly featured CRUD app geared towards art lovers.
 </details>
 
 <details>
-  <summary>Possible future improvements:</summary>
+  <summary>Possible future improvements</summary>
   <ul>
     <li>Give Users the ability to delete their own artwork posts.</li>
     <li>Make the ‘like’ button available anywhere the post is visible.</li>
@@ -224,7 +224,7 @@ A richly featured CRUD app geared towards art lovers.
 
 
 <details>
-  <summary>Bugs: There is only one piece of functionality that does not work as intended.</summary>
+  <summary>Bugs - There is one piece of functionality that does not work  exactly as intended.</summary>
   <ul>
     <li>
       I could not make the list of artworks by a particular user visible on ‘other-users-profile’ and I am still unsure why - I will look again at this problem         soon.
