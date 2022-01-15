@@ -17,7 +17,7 @@ Solo Project - A richly featured CRUD app geared towards art lovers
 </details>
 
 <details>
-  <summary>YolkOchre - Overview.</summary>
+  <summary>YolkOchre - Overview :bulb:</summary>
   <ul>
     <li>A dynamic web application geared towards the Art world.</li>
     <li>Upload, view, and update Artworks on the database - includes a caption and location.</li>
@@ -33,7 +33,7 @@ Solo Project - A richly featured CRUD app geared towards art lovers
 </details>
 
 <details>
-  <summary>Tech - Frontend</summary>
+  <summary>Tech :gear: - Frontend</summary>
   <ul>
     <li>
       <details>
@@ -59,7 +59,7 @@ Solo Project - A richly featured CRUD app geared towards art lovers
 </details>  
 
 <details>
-  <summary>Tech - Backend</summary>
+  <summary>Tech :gear: - Backend</summary>
     <ul>
       <li>
         Models - Exported schemas for data which will be added - this includes seeded data and also any relationships (one-to-many & many-to-many ) including:
@@ -82,7 +82,7 @@ Solo Project - A richly featured CRUD app geared towards art lovers
 </details>
 
 <details>
-  <summary>Approach</summary>
+  <summary>Approach :desktop_computer:</summary>
   <ul>
     <li>
       <details>
@@ -172,7 +172,7 @@ Solo Project - A richly featured CRUD app geared towards art lovers
 </details>
 
 <details>
-  <summary>Key learnings:</summary>
+  <summary>Key learnings :open_book:</summary>
   <ul>
     <li>Entity Relationship Diagrams for visualising tabular data and relationships.</li>
     <li>PostgreSQL</li>
@@ -187,7 +187,7 @@ Solo Project - A richly featured CRUD app geared towards art lovers
 </details>
 
 <details>
-  <summary>Challenges & Wins</summary>
+  <summary>Challenges & Wins :chart_with_upwards_trend:</summary>
   <ul>
     <li>Understanding serializers, translating django models appropriately for sending and receiving data.</li>
     <li>
