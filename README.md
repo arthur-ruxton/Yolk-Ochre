@@ -2,64 +2,46 @@
 # [Yolk Ochre](https://yolkochre.herokuapp.com/register) :egg:
 Solo Project - A richly featured CRUD app geared towards art lovers
 
+### Timeframe: 1 week 
+
 <details>
-  <summary>Aim</summary>
-  <ul>
-    <li>On your own or in teams, build a full stack application.</li>
-    <li>Use PostegreSQL, Python, Django REST framework, React.js & Node.</li>
-    <li>Include at least one ‘one-to-many’ or one ‘many-to-many’ relationship.</li>
-    <li>For a challenge - include Authentication.</li>
-    <li>Use SASS for styling</li>
-    <li>For a challenge include one or more dependencies for React libraries</li>
-    <li>It can be a direct clone of, or inspired by, an existing website.</li>
-    <li>Make wireframes as part of your planning in order for us to sign you off. </li>
-  </ul>
+  <summary>Goals :dart:</summary>
+  <p>1. Build a full stack application by yourself. Use PostegreSQL, Python, Django REST framework, React.js & Node. </p>
+  <p>2. Include at least one ‘one-to-many’ or one ‘many-to-many’ relationship.</p>
+  <p>3. For a challenge - include Authentication.</p>
+  <p>4.It can be a direct clone of, or inspired by, an existing website. </p>
+  <p>5. Make an ERD and wireframes as part of your planning in order for us to sign you off. </p>
 </details>
 
 <details>
   <summary>YolkOchre - Overview :bulb:</summary>
-  <ul>
-    <li>A dynamic web application geared towards the Art world.</li>
-    <li>Upload, view, and update Artworks on the database - includes a caption and location.</li>
-    <li><em>Like</em> or <em>unlike</em> art posts by other users and see who already likes a particular post.</li>
-    <li><em>Follow</em> and or <em>Favourite</em> other users</li>
-    <li>View posts by people you favourite on the star page</li>
-    <li>
+    <p>A dynamic web application geared towards the Art world.</p>
+    <p>Upload, view, and update Artworks on the database - includes a caption and location.</p>
+    <p><em>Like</em> or <em>unlike</em> art posts by other users and see who already likes a particular post.</p>
+    <p><em>Follow</em> and or <em>Favourite</em> other users</p>
+    <p>View posts by people you favourite on the star page</p>
+    <p>
       View other users profiles - see their bio, who follows them, who they follow, who they favourite and who they’re favourites by. 
-    </li>
-    <li>Authentication (Register / Login & perform restricted actions when logged in)</li>
-    <li>Consistent styling throughout, achieved mainly with SASS and react-bootstrap</li>
-  </ul>
+    </p>
+    <p>Authentication (Register / Login & perform restricted actions when logged in)</p>
+    <p>Consistent styling throughout, achieved mainly with SASS and react-bootstrap</p>
 </details>
 
 <details>
-  <summary>Tech :gear: - Frontend</summary>
-  <ul>
-    <li>
-      <details>
-        <summary>  JavaScript / REACT / React-Bootstrap / HTML - 55% :</summary>
-        <ul>
-          <li>The client facing APP.</li>
-          <li>Components of all shapes and sizes for getting and displaying data</li>
-          <li>Helper functions (configurable blueprints for sending requests) </li>
-          <li>Various pages on which components are rendered</li>
-          <li>Index.js where the client facing app is injected into the document root (an HTML file)</li>
-        </ul>
-      </details>
-    </li>
-    <li>
-      <details>
-        <summary>SASS - 6% :</summary>
-        <ul>
-          <li>Positioning, fonts & colouring.</li>
-        </ul>
-      </details>
-    </li>
-  </ul>
-</details>  
-
-<details>
-  <summary>Tech :gear: - Backend</summary>
+  <summary>Tech :gear:</summary>
+  <div>
+    <h3>Frontend -- JavaScript / REACT / React-Bootstrap / HTML / SASS 61% :</h3>
+    <ul>
+      <li>The client facing APP.</li>
+      <li>Components of all shapes and sizes for getting and displaying data</li>
+      <li>Helper functions (configurable blueprints for sending requests) </li>
+      <li>Various pages on which components are rendered</li>
+      <li>Index.js where the client facing app is injected into the document root (an HTML file)</li>
+      <li>Styling</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Backend -- Python 39% :</h3>
     <ul>
       <li>
         Models - Exported schemas for data which will be added - this includes seeded data and also any relationships (one-to-many & many-to-many ) including:
@@ -79,67 +61,55 @@ Solo Project - A richly featured CRUD app geared towards art lovers
       <li>Controllers (functions which handle incoming requests) - these include permissions to restrict access.</li>
       <li>Serializers - translate Django models into other data types, for sending and receiving data as JSON. </li>
     </ul>
-</details>
+  </div>  
+</details>  
 
 <details>
   <summary>Approach :desktop_computer:</summary>
-  <ul>
-    <li>
-      <details>
-        <summary>Beginning  - planning :</summary>
-        <ul>
-          <li>
-            I created an EntityRelationshipDiagram (ERD) - a visual aid in planning.  A graphic depiction of the relationships in the tabular data my project would             consist of.
-          </li>
-          <li>Then wireframes to visualise the entire client side app.</li>
-          <li>Followed by lists of ‘to-dos’, ‘doing’, ‘done-front-end’ & ‘done-backend’</li>
-          <li>I created a database using PostgreSQL</li>
-          <li>Then began working on the project in VS.Code making sure the engine was postgresql.</li>
-          <li>After setting up initial url for homepage</li>
-          <li>
-            I built the first model, ‘Art’, its urls, serializers & controllers - this took many revisions before I arrived at something usable for the final MVP.
-          </li>
-          <li>
-            Then the <strong>custom user model</strong> and its respective urls, serializers and controllers. This is also where we introduce authentication. -                 again this had to be revised many times. 
-          </li>
-          <li>Finally, the comment model and its urls etc. I am still yet to use this up on the front end but it works.</li>
-          <li>As I built these models and controllers (views) I tested them using Insomnia.</li>
-          <li>When a feature seemed to be complete I committed my work to git and pushed it to GitHub.</li>
-        </ul>
-      </details>
-    </li>
-    <li>
-      <details>
-        <summary>Middle - bulk of the project :</summary>
-        <ul>
-          <li>I began work on the frontend as usual - adding a ‘helpers’ folder containing configurable callback functions for making our requests.</li>
-          <li>
-            My thorough plan gave me a clear overview of the pages and components I would have to build for our MVP and I made quick progress with those - building             out things like the navigation bar and the footer which would be seen on every page - then the register and login form which I tested before moving on.
-          </li>
-          <li>
-            I then built out all of the pages and components that would be used within them, testing things as I went along - always committing to get and pushing             to github at good checkpoints. 
-          </li>
-          <li>I then brought in React-Bootstrap components (a bunch of which I had never used before) to speed up styling and formatting. </li>
-        </ul>
-      </details>
-    </li>
-    <li>
-      <details>
-        <summary>End - polishing & testing :</summary>
-        <ul>
-          <li>I worked from the morning until the next morning, 5am, with very few breaks in order to deliver an MVP presentation a few hours later.</li>
-          <li>I brought in React-Bootstrap-Icons to clean up the look and feel of the application, this really helps to create a finished, professional feel.</li>
-          <li>
-            I worked in SASS to implement my chosen colour palette drawn from the name, YolkOchre, the fonts which were inspired by a magazine cover and the                     formatting, inspired by modern art galleries. I also used this time to customise all of the bootstrapped stuff to make it my own. 
-          </li>
-        </ul>
-      </details>
-    </li>
-  </ul>
+  <div>
+    <h3>Beginning  - planning :</h3>
+    <p>
+      I created an EntityRelationshipDiagram (ERD) - a visual aid in planning.  A graphic depiction of the relationships in the tabular data my project would             consist of.
+    </p>
+    <p>Then wireframes to visualise the entire client side app.</p>
+    <br>
+    <p>Followed by lists of ‘to-dos’, ‘doing’, ‘done-front-end’ & ‘done-backend’</p>
+    <p>I created a database using PostgreSQL</p>
+    <p>Then began working on the project in VS.Code making sure the engine was postgresql.</p>
+    <p>After setting up initial url for homepage</p>
+    <p>
+      I built the first model, ‘Art’, its urls, serializers & controllers - this took many revisions before I arrived at something usable for the final MVP.
+    </p>
+    <p>
+      Then the <strong>custom user model</strong> and its respective urls, serializers and controllers. This is also where we introduce authentication. -                 again this had to be revised many times. 
+    </p>
+    <p>Finally, the comment model and its urls etc. I am still yet to use this up on the front end but it works.</p>
+    <p>As I built these models and controllers (views) I tested them using Insomnia.</p>
+    <p>When a feature seemed to be complete I committed my work to git and pushed it to GitHub.</p>
+  </div>
+  <div>
+    <h3>Middle - bulk of the project :</h3>
+    <p>I began work on the frontend as usual - adding a ‘helpers’ folder containing configurable callback functions for making our requests.</p>
+    <p>
+      My thorough plan gave me a clear overview of the pages and components I would have to build for our MVP and I made quick progress with those - building             out things like the navigation bar and the footer which would be seen on every page - then the register and login form which I tested before moving on.
+    </p>
+    <p>
+      I then built out all of the pages and components that would be used within them, testing things as I went along - always committing to get and pushing             to github at good checkpoints. 
+    </p>
+    <p>I then brought in React-Bootstrap components (a bunch of which I had never used before) to speed up styling and formatting. </p>
+  </div>
+  <div>
+    <h3>End - polishing & testing:</h3>
+    <p>I worked from the morning until the next morning, 5am, with very few breaks in order to deliver an MVP presentation a few hours later.</p>
+    <p>I brought in React-Bootstrap-Icons to clean up the look and feel of the application, this really helps to create a finished, professional feel.</p>
+    <p>
+      I worked in SASS to implement my chosen colour palette drawn from the name, YolkOchre, the fonts which were inspired by a magazine cover and the                     formatting, inspired by modern art galleries. I also used this time to customise all of the bootstrapped stuff to make it my own. 
+    </p>
+  </div>
 </details>
 
 <details>
-  <summary>Code snippets / features</summary>
+  <summary>Code snippets / features </summary>
   <p>Custom user model - this includes two reciprocal many to many relationships (the table has many to many relationships with itself)</p>
   <img src=https://user-images.githubusercontent.com/89402596/149196019-d153502f-43ee-4f90-81b8-b3e6e72b6981.png />
   <p>Views (controllers) for following & unfollowing / favouriting & unfavouriting - I used a toggle method on this project</p>
@@ -153,7 +123,7 @@ Solo Project - A richly featured CRUD app geared towards art lovers
 </details>
 
 <details>
-  <summary>Visuals</summary>
+  <summary>Visuals :art:</summary>
   <p>Planning on Trello:</p>
   <img src=https://user-images.githubusercontent.com/89402596/148811744-7560d3bc-2332-4a81-88f2-45f621b97ce3.png />
   <p>Register user:</p>
@@ -198,7 +168,7 @@ Solo Project - A richly featured CRUD app geared towards art lovers
 </details>
 
 <details>
-  <summary>Possible future improvements</summary>
+  <summary>Possible future improvements :flight_departure:</summary>
   <ul>
     <li>Give Users the ability to delete their own artwork posts.</li>
     <li>Make the ‘like’ button available anywhere the post is visible.</li>
@@ -238,12 +208,10 @@ Solo Project - A richly featured CRUD app geared towards art lovers
 
 
 <details>
-  <summary>Bugs - There is one piece of functionality that does not work  exactly as intended.</summary>
-  <ul>
-    <li>
-      I could not make the list of artworks by a particular user visible on ‘other-users-profile’ and I am still unsure why - I will look again at this problem         soon.
-    </li>
-  </ul>
+  <summary>Bugs :bug:</summary>
+  <p>
+    I could not make the list of artworks by a particular user visible on ‘other-users-profile’ and I am still unsure why - I will look again at this problem         soon.
+  </p>
 </details>
 
 
