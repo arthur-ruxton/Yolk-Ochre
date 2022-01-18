@@ -67,25 +67,35 @@ Solo Project - A richly featured CRUD app geared towards art lovers
 <details>
   <summary>Approach :desktop_computer:</summary>
   <div>
-    <h3>Beginning  - planning :</h3>
+    <h3>Planning :</h3>
     <p>
-      I created an EntityRelationshipDiagram (ERD) - a visual aid in planning.  A graphic depiction of the relationships in the tabular data my project would             consist of.
+      My Trello board consisted of:
+      <ul>
+        <li>
+          A hand drawn detailed EntityRelationshipDiagram (ERD) which is a visual aid in planning, it’s a graphic depiction of the relationships in the tabular data           my project would consist of. 
+        </li>
+        <li>Wireframes to visualise the entire client side app</li>
+        <li>Lists of ‘to-dos’, ‘doing’, ‘done-front-end’ & ‘done-backend’</li>
+      </ul>
     </p>
-    <p>Then wireframes to visualise the entire client side app.</p>
-    <br>
-    <p>Followed by lists of ‘to-dos’, ‘doing’, ‘done-front-end’ & ‘done-backend’</p>
-    <p>I created a database using PostgreSQL</p>
-    <p>Then began working on the project in VS.Code making sure the engine was postgresql.</p>
-    <p>After setting up initial url for homepage</p>
+  </div>
+  <div>
+    <h3>Backend :</h3>
     <p>
-      I built the first model, ‘Art’, its urls, serializers & controllers - this took many revisions before I arrived at something usable for the final MVP.
+      I created a database using PostgreSQL, then began working on the project in VS.code making sure the engine was PostgreSQL. <br>
+      After setting up the initial url for the homepage, I built the first model, ‘Art’, its urls, serializers and controllers - this took many revisions before I         arrived at something usable for the final MVP. <br>
+      Then the custom user model and its respective urls, serializers and controllers. This is also where we introduce authentication. - again this had to be             revised many times. <br>
+      Finally, the comment model and its urls etc. I am still yet to use this up on the front end but it does work. <br>
+      As I built these models and controllers (views) I tested them using Insomnia.
     </p>
-    <p>
-      Then the <strong>custom user model</strong> and its respective urls, serializers and controllers. This is also where we introduce authentication. -                 again this had to be revised many times. 
-    </p>
-    <p>Finally, the comment model and its urls etc. I am still yet to use this up on the front end but it works.</p>
-    <p>As I built these models and controllers (views) I tested them using Insomnia.</p>
-    <p>When a feature seemed to be complete I committed my work to git and pushed it to GitHub.</p>
+    <p><b>
+      Custom user model:
+      <img src="https://user-images.githubusercontent.com/89402596/149993995-5417f412-c6a1-4546-ab5c-41ae1495fe7c.png" />
+    </b></p>
+    <p><b>
+      Views / controllers for following & unfollow / favouring & un-favouring other users: 
+      <img src="https://user-images.githubusercontent.com/89402596/149994155-3f117062-0031-4eda-ba1b-00d2df399ec4.png" />
+    </b></p>
   </div>
   <div>
     <h3>Middle - bulk of the project :</h3>
@@ -99,27 +109,34 @@ Solo Project - A richly featured CRUD app geared towards art lovers
     <p>I then brought in React-Bootstrap components (a bunch of which I had never used before) to speed up styling and formatting. </p>
   </div>
   <div>
-    <h3>End - polishing & testing:</h3>
-    <p>I worked from the morning until the next morning, 5am, with very few breaks in order to deliver an MVP presentation a few hours later.</p>
-    <p>I brought in React-Bootstrap-Icons to clean up the look and feel of the application, this really helps to create a finished, professional feel.</p>
+    <h3>Frontend :</h3>
+    <p>I began work on the frontend as usual - adding a ‘helpers’ folder containing configurable callback functions for making my requests.</p>
     <p>
-      I worked in SASS to implement my chosen colour palette drawn from the name, YolkOchre, the fonts which were inspired by a magazine cover and the                     formatting, inspired by modern art galleries. I also used this time to customise all of the bootstrapped stuff to make it my own. 
+      My thorough plan gave me a clear overview of the pages and components I would have to build for my MVP and I made quick progress with those - building out           things like the nav bar and the footer which would be seen on every page - then the register and login form which I tested before moving on.
     </p>
+    <p>
+     I then built out all of the pages and components that would be used within them, testing things as I went along - always committing to Git and pushing to            GitHub at good checkpoints. – Much of this component logic works in the same way - request data from the database, map over it and display it in some                appropriate way – whether that is building a home page or the profile page, the concepts are basically the same. 
+    </p>
+    <p>
+      I then brought in React-Bootstrap components (a bunch of which I had never used before) to speed up formatting. 
+    </p>
+   <p><b>
+     Example of exported helper function for making requests to the database:
+     <img src="https://user-images.githubusercontent.com/89402596/149994808-1b769f99-b9f1-49dc-bf10-8aed91324f7f.png" />
+   </b></p>
   </div>
-</details>
-
-<details>
-  <summary>Code snippets / features </summary>
-  <p>Custom user model - this includes two reciprocal many to many relationships (the table has many to many relationships with itself)</p>
-  <img src=https://user-images.githubusercontent.com/89402596/149196019-d153502f-43ee-4f90-81b8-b3e6e72b6981.png />
-  <p>Views (controllers) for following & unfollowing / favouriting & unfavouriting - I used a toggle method on this project</p>
-  <img src=https://user-images.githubusercontent.com/89402596/149196115-7e767a5f-fe28-409a-a2ea-e173f45015d6.png />
-  <p>Pages</p>
-  <img src=https://user-images.githubusercontent.com/89402596/149196808-d1ef23ec-032a-4269-9b89-bdd17e7ca34f.png />
-  <p>Components</p>
-  <img src=https://user-images.githubusercontent.com/89402596/149196869-bed80431-dcb9-4d1e-bf4e-8df42c257f59.png />
-  <p>Example of exported helper functions used for making requests</p>
-  <img src=https://user-images.githubusercontent.com/89402596/149197216-734ca3f6-aac9-4c4a-aed6-59a5eac3413b.png />
+  <div>
+   <h3>Styling :</h3>
+   <p>I worked from the morning until the next morning, 5am, with very few breaks in order to deliver an MVP presentation a few hours later.</p>
+   <p>I brought in React-Bootstrap-Icons to clean up the look and feel of the application, this really helps to create a finished, professional feel.</p>
+   <p>
+     I worked in SASS to implement my chosen colour palette drawn from the name, YolkOchre, the fonts which were inspired by a magazine cover and the formatting,        inspired by modern art galleries. I also used this time to customise all of the bootstrap components to make them my own. 
+  </p>
+  <p><b>
+    Example of imported and nested style-rules using SASS:
+    <img src="https://user-images.githubusercontent.com/89402596/149995660-90aaf91c-0f80-4826-9221-d9727daadfb5.png" />
+  </b></p>
+  </div>
 </details>
 
 <details>
@@ -143,17 +160,11 @@ Solo Project - A richly featured CRUD app geared towards art lovers
 
 <details>
   <summary>Key learnings :open_book:</summary>
-  <ul>
-    <li>Entity Relationship Diagrams for visualising tabular data and relationships.</li>
-    <li>PostgreSQL</li>
-    <li>Python syntax and abilities</li>
-    <li>Django and the Rest framework</li>
-    <li>One-to-many VS many-to-many relationships</li>
-    <li>Furthering understanding of useEffect React hook</li>
-    <li>
-      Create all of the controllers you will need - if you want to fetch data based on a particular users Id, create a controller for this instead of fetching all       data and filtering it on the frontend. 
-    </li>
-  </ul>
+   Entity Relationship Diagrams for visualising tabular data and relationships. <br>
+   PostgreSQL, Python syntax / abilities + Django and the Rest framework. <br>
+   One-to-many VS many-to-many relationships. <br>
+   Furthering understanding of useEffect React hook. <br>
+   <b>This project taught me to create all of the controllers I need - if I want to fetch data based on a particular user’s Id, I should create a controller for        this instead of fetching all data and doing the hard work of filtering it on the frontend. </br>
 </details>
 
 <details>
@@ -213,8 +224,6 @@ Solo Project - A richly featured CRUD app geared towards art lovers
     I could not make the list of artworks by a particular user visible on ‘other-users-profile’ and I am still unsure why - I will look again at this problem         soon.
   </p>
 </details>
-
-
 
 
 
